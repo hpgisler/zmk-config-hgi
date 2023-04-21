@@ -149,70 +149,108 @@ enum layers {
     ala0 {
       label = "ALA0";
       bindings = <
-      &hm_l LCTL L    &hm_l LALT G    &hm_l LGUI D                &hm_r RGUI H    &hm_r LALT U        &hm_r RCTL O
-      &skq LSHIFT     &hl_l SM2 S     &hl_l SM1 R     &hl_l SYS T                 &hl_r SYS N     &hl_r SM1 E         &hl_r SM2 A     &hl_r NUM C
-      &kp SPC        &sk LSHIFT                  &td LC(LS(LALT)) COMMA  &mo AL2
+      &kp R               &kp H               &kp D               &kp U               &kp O               &kp A
+      &skq LSHIFT         &kp N               &kp S               &kp T               &kp SPACE           &kp E               &kp I               &mt LCTRL ESC
+      &sl ALA2            &sl NAS0            &sl FUN0            &sl ALA1    
       >;
     };
+
     ala1 {
-      label = "Al1";
+      label = "ALA1";
       bindings = <
-      &kp V       &kp W               &kp M               &kp F       &kp SQT         &kp Z
-      &kp Q       &kp J       &kp P               &kp K               &kp B       &kp DOT         &kp X       &kp Y
-      &kp SPC             &sr LSHIFT AL1      &trans      &none
+      &kp X               &kp M               &kp B               &kp LBRC            &kp SEMI            &kp SQT 
+      &trans              &kp L               &kp F               &kp G               &kp C               &sm LALT            &kp SLASH           &trans
+      &sl ALA3            &sl NAS1            &trans              &trans
+      >;
+    };
+
+    ala2 {
+      label = "ALA2";
+      bindings = <
+      &kp J               &kp K               &kp V               &kp Q               &kp LS(MINUS)       &kp LS(N7)
+      &trans              &kp W               &kp Y               &kp P               &kp Z               &kp COMMA           &kp DOT             &trans
+      &trans              &trans              &sl FUN1            &sl ALA3
+      >;
+    };
+
+    ala3 {
+      label = "ALA3";
+      bindings = <
+      &kp N1              &kp N2              &kp N3              &kp N4              &kp N5              &kp N6
+      &trans              &kp N7              &kp N8              &kp N9              &kp N0              &kp LS(N3)          &kp LS(MINUS)       &trans
+      &trans              &trans              &trans              &trans              
+      >;
+    };
+
+    nas0 {
+      label = "NAS0";
+      bindings = <
+      &kp NUHS            &kp LS(N6)          &kp RA(EQUAL)       &kp BSPC            &kp LEFT            &kp RIGHT
+      &trans              &none               &none               &kp TAB             &kp DOWN            &kp UP              &kp ENTER           &trans
+      &trans              &trans              &sl NAS2            &sl NAS1              
+      >;
+    };
+
+    nas1 {
+      label = "NAS1";
+      bindings = <
+      &bt BT_CLR          &none               &kp LS(NUHS)        &kp DEL             &kp HOME            &kp END   
+      &trans              &kp LS(GRAVE)       &kp RA(N3)          &kp RA(N7)          &kp PG_DN           &kp PG_UP           &kp LS(N8)          &trans
+      &trans              &trans              &trans              &trans              
+      >;
+    };
+
+    nas2 {
+      label = "NAS2";
+      bindings = <
+      &bt BT_SEL 0        &bt BT_SEL 1        &kp PSCRN           &kp GRAVE           &none               &kp LS(SQT)   
+      &trans              &bt BT_SEL 2        &bt BT_SEL 3        &kp SCROLLLOCK      &kp LS(N4)          &kp LS(SEMI)        &kp LS(LBRC)        &trans
+      &trans              &trans              &trans              &trans              
       >;
     };
     
-    sym1 {
-      label = "Code";
+    fun0 {
+      label = "FUN0";
       bindings = <
-      &kp STAR    &kp LS(N3)  &kp DLLR                       &kp LS(COMMA)   &kp LS(DOT)     &kp MINUS
-      &kp BSLH   &kp GRAVE    &kp TILDE   &kp CARET                      &kp LBKT        &kp RBKT        &kp PIPE    &kp SLASH
-      &trans      &sr LSHIFT AL1                 &kp LALT        &kp RGUI
-      >;
-    };
-    sym2 {
-      label = "Punct";
-      bindings = <
-      &kp ATSN    &kp QMARK        &kp LA(N3)                &kp LPRN    &kp RPRN    &kp MINUS
-      &kp SEMI    &kp PRCNT   &kp EXCL         &kp LS(MINUS)             &kp LBRC    &kp RBRC    &kp AMPS    &kp COLON
-      &trans          &sr LSHIFT AL1             &kp LALT    &kp RGUI
-      
+      &kp RA(F1)          &kp RA(F2)          &kp RA(F3)          &kp RA(F4)          &kp RA(F5)          &kp RA(F6)        
+      &trans              &kp RA(F7)          &kp RA(F8)          &kp RA(F9)          &kp RA(J)           &kp RA(K)           &kp RA(P)           &trans
+      &sl FUN1            &sl FUN2            &trans              &trans              
       >;
     };
     
-    num {
-      label = "Num";
+    fun1 {
+      label = "FUN1";
       bindings = <
-      &hm_l LCTL DOT      &hm_l LALT N0   &hm_l LGUI N1       &hm_r RGUI N2   &hm_r LALT N3    &hm_r RCTL N4
-      &td SLASH MINUS   &td STAR PLUS       &kp N5          &kp N6              &kp N7          &kp N8           &kp N9         &td COLON EQUAL
-      &trans          &sr LSHIFT AL1      &kp LALT        &kp RGUI
+      &kp RA(LS(Q))       &kp RA(LS(C))       &kp LGUI            &kp RA(B)           &kp RA(H)           &kp RA(L)         
+      &trans              &bt BT_CLR          &trans              &kp CAPS            &kp RA(I)           &kp RA(D)           &trans              &trans
+      &trans              &trans              &trans              &trans              
       >;
     };
-    
-    sys {
-      label = "Nav";
+
+    fun2 {
+      label = "FUN2";
       bindings = <
-      &kp ESC        &kp LG(LS(LBKT))    &kp LG(LS(RBKT))         &td LG(V) LG(C)     &td PG_UP UP    &kp BKSP
-      &td LG(GRAVE) TAB   &kp DEL        &td HOME LG(LBKT)   &td END LG(RBKT)         &kp LEFT            &td PG_DN DOWN  &kp RIGHT   &kp RET
-      &kp LCTL            &sr LSHIFT AL1           &kp LALT            &kp RGUI
+      &kp F1              &kp F2              &kp F3              &kp F4              &kp F5              &kp F6            
+      &trans              &kp F7              &kp F8              &kp F9              &kp F10             &kp F11             &kp F12             &trans
+      &trans              &trans              &trans              &trans              
       >;
     };
-    
-    bt {
-      label = "BT";
+
+    modl {
+      label = "MODL";
       bindings = <
-      &bt BT_SEL 0    &bt BT_SEL 1  &bt BT_SEL 2           &bt BT_SEL 3     &bt BT_SEL 4   &trans
-      &trans    &reset          &trans        &bootloader            &bootloader      &trans         &reset  &bt BT_CLR
-      &none         &to AL1                &none     &none
+      &kp RALT            &trans              &kp LGUI            &trans              &trans              &trans            
+      &trans              &kp LALT            &kp LSFT            &kp LCTL            &trans              &trans              &trans              &trans
+      &trans              &trans              &trans              &trans              
       >;
     };
-    fun {
-      label = "Fn";
+
+    modr {
+      label = "MODR";
       bindings = <
-      &kp F11   &kp F10   &kp F1           &kp F2   &kp F3   &kp F4
-      &kp C_VOL_DN    &kp F12   &kp F5    &kp F6           &kp F7   &kp F8   &kp F9  &kp C_VOL_UP
-      &none     &to AL1          &none    &kp C_MUTE
+      &trans              &trans              &trans              &kp RGUI            &trans              &kp RALT          
+      &trans              &trans              &trans              &trans              &kp RCTL            &kp RSFT            &kp LALT            &trans
+      &trans              &trans              &trans              &trans              
       >;
     };
   };
