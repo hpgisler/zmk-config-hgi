@@ -179,7 +179,7 @@
     nas2 {
       label = "NAS2";
       bindings = <
-      &bt BT_SEL 0        &bt BT_SEL 1        &kp PSCRN           &kp GRAVE           &none               &kp LS(SQT)   
+      &bt BT_SEL 0        &bt BT_SEL 1        &kp PSCRN           &kp GRAVE           &bt BT_CLR          &kp LS(SQT)   
       &trans              &bt BT_SEL 2        &bt BT_SEL 3        &kp SCROLLLOCK      &kp LS(N4)          &kp LS(SEMI)        &kp LS(LBRC)        &trans
       &trans              &trans              &trans              &trans              
       >;
