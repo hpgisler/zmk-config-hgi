@@ -18,53 +18,21 @@
 };
 
 /* Layers */
-enum layers {
-  ALA0,
-  ALA1,
-  ALA2,
-  ALA3,
-  ALA4,
-  NAS0,
-  NAS1,
-  NAS2,
-  FUN0,
-  FUN1,
-  FUN2,
-  MODL,
-  MODR,
-};
+#define ALA0 0
+#define ALA1 1
+#define ALA2 2
+#define ALA3 3
+#define ALA4 4
+#define NAS0 5
+#define NAS1 6
+#define NAS2 7
+#define FUN0 8
+#define FUN1 9
+#define FUN2 10
+#define MODL 11
+#define MODR 12
 
 / { 
-  combos {
-    compatible = "zmk,combos";
-    combo_sys {
-      timeout-ms = <30>;
-      key-positions = <3 4 5>;
-      bindings = <&to SYS>;
-    };
-    combo_caps {
-      timeout-ms = <30>;
-      key-positions = <10 11 12>;
-      bindings = <&caps_word>;
-    };
-    combo_num {
-      timeout-ms = <30>;
-      key-positions = <0 1 2>;
-      bindings = <&to NUM>;
-    };
-    combo_bt  {
-      timeout-ms = <10>;
-      key-positions = <11 12>;
-      bindings = <&to BT>;
-      layers = <SM1>;
-    };
-    combo_fun  {
-      timeout-ms = <10>;
-      key-positions = <7 8>;
-      bindings = <&to FUN>;
-      layers = <AL1>;
-    };
-  };
   
   behaviors {
     skq: sticky_key_quick_release {
@@ -76,7 +44,6 @@ enum layers {
       quick-release;
       ignore-modifiers;
     };
-    
     
     
     hm_l: homerow_mods_left {
@@ -159,7 +126,7 @@ enum layers {
       label = "ALA1";
       bindings = <
       &kp X               &kp M               &kp B               &kp LBRC            &kp SEMI            &kp SQT 
-      &trans              &kp L               &kp F               &kp G               &kp C               &sm LALT            &kp SLASH           &trans
+      &trans              &kp L               &kp F               &kp G               &kp C               &sk LALT            &kp SLASH           &trans
       &sl ALA3            &sl NAS1            &trans              &trans
       >;
     };
@@ -176,6 +143,15 @@ enum layers {
     ala3 {
       label = "ALA3";
       bindings = <
+      &kp LS(N1)          &kp BSLH            &kp LS(BSLH)        &kp RA(SQT)         &kp RA(HASH)        &none
+      &trans              &kp RA(N2)          &kp RA(LBKT)        &kp RA(RBKT)        &kp LS(N8)          &kp LS(N9)          &kp LS(N2)          &trans
+      &trans              &trans              &trans              &trans              
+      >;
+    };
+
+    ala4 {
+      label = "ALA4";
+      bindings = <
       &kp N1              &kp N2              &kp N3              &kp N4              &kp N5              &kp N6
       &trans              &kp N7              &kp N8              &kp N9              &kp N0              &kp LS(N3)          &kp LS(MINUS)       &trans
       &trans              &trans              &trans              &trans              
@@ -185,8 +161,8 @@ enum layers {
     nas0 {
       label = "NAS0";
       bindings = <
-      &kp NUHS            &kp LS(N6)          &kp RA(EQUAL)       &kp BSPC            &kp LEFT            &kp RIGHT
-      &trans              &none               &none               &kp TAB             &kp DOWN            &kp UP              &kp ENTER           &trans
+      &kp LS(N5)          &kp LS(N6)          &kp EQUAL           &kp BSPC            &kp LEFT            &kp RIGHT
+      &trans              &kp RA(EQUAL)       &none               &kp TAB             &kp DOWN            &kp UP              &kp ENTER           &trans
       &trans              &trans              &sl NAS2            &sl NAS1              
       >;
     };
@@ -194,7 +170,7 @@ enum layers {
     nas1 {
       label = "NAS1";
       bindings = <
-      &bt BT_CLR          &none               &kp LS(NUHS)        &kp DEL             &kp HOME            &kp END   
+      &kp RA(E)           &kp HASH            &kp LS(NUHS)        &kp DEL             &kp HOME            &kp END   
       &trans              &kp LS(GRAVE)       &kp RA(N3)          &kp RA(N7)          &kp PG_DN           &kp PG_UP           &kp LS(N8)          &trans
       &trans              &trans              &trans              &trans              
       >;
