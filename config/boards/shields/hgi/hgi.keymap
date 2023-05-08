@@ -116,8 +116,8 @@
     ala0 {
       label = "ALA0";
       bindings = <
-      &kp L               &kp N               &kp D               &kp U               &kp O               &kp A
-      &skq LSHIFT         &kp R               &kp S               &kp T               &kp SPACE           &kp E               &kp I               &mt LCTRL ESC
+      &kp N               &kp S               &kp D               &kp SLASH           &kp O               &kp LBRC
+      &skq LSHIFT         &kp R               &kp H               &kp T               &kp SPACE           &kp E               &kp I               &mt LCTRL ESC
       &sl ALA2            &sl NAS0            &sl FUN0            &sl ALA1    
       >;
     };
@@ -125,8 +125,8 @@
     ala1 {
       label = "ALA1";
       bindings = <
-      &kp X               &kp F               &kp B               &kp LBRC            &kp SEMI            &kp SQT 
-      &trans              &kp H               &kp M               &kp G               &kp C               &sk LALT            &kp SLASH           &trans
+      &kp J               &kp K               &kp V               &kp LS(N7)          &kp Q               &kp SEMI  
+      &trans              &kp W               &kp Z               &kp P               &kp C               &kp COMMA           &kp Z               &trans
       &sl ALA3            &sl NAS1            &trans              &trans
       >;
     };
@@ -134,8 +134,8 @@
     ala2 {
       label = "ALA2";
       bindings = <
-      &kp J               &kp K               &kp V               &kp Q               &kp LS(MINUS)       &kp LS(N7)
-      &trans              &kp Z               &kp W               &kp P               &kp Y               &kp COMMA           &kp DOT             &trans
+      &kp X               &kp M               &kp B               &sk LALT            &kp LS(MINUS)       &kp SQT 
+      &trans              &kp L               &kp F               &kp G               &kp U               &kp DOT             &kp A               &trans
       &trans              &trans              &sl FUN1            &sl ALA3
       >;
     };
