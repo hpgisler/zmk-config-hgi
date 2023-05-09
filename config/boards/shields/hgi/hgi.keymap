@@ -136,7 +136,7 @@
       bindings = <
       &kp X               &kp M               &kp B               &sk LALT            &kp LS(MINUS)       &kp SQT 
       &trans              &kp L               &kp F               &kp G               &kp U               &kp DOT             &kp A               &trans
-      &trans              &trans              &sl FUN1            &sl ALA3
+      &trans              &trans              &sl FUN1            &sl ALA4
       >;
     };
 
