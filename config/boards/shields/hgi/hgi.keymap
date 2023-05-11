@@ -114,6 +114,14 @@
       mods = <(MOD_LSFT)>;
     };
     
+    slsbsls: slsbsls {
+      compatible = "zmk,behavior-mod-morph";
+      label = "SLASH_BACKSLASH";
+      #binding-cells = <0>;
+      bindings = &kp LS(N7), <&kp RA(NUBS)>;
+      mods = <(MOD_LSFT)>;
+    };
+    
     dwjm: dwm_j_m {
       compatible = "zmk,behavior-mod-morph";
       label = "DWM_FORWARD_MONOCLE";
@@ -165,7 +173,7 @@
     ala1 {
       label = "ALA1";
       bindings = <
-      &kp J               &kp K               &kp V               &kp LS(N7)          &kp Q               &kp SEMI  
+      &kp J               &kp K               &kp V               &slsbsls            &kp Q               &kp SEMI  
       &trans              &kp W               &kp Y               &kp P               &kp C               &kp COMMA           &kp Z               &trans
       &sl ALA3            &sl NAS1            &trans              &trans
       >;
