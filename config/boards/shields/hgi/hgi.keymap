@@ -110,7 +110,7 @@
       compatible = "zmk,behavior-mod-morph";
       label = "QUESTIONMARK_EXCLAMATIONMARK";
       #binding-cells = <0>;
-      bindings = <&kp LS(MINUS)>, <&kp RBKT>;
+      bindings = <&kp LS(MINUS)>, <&kp LS(RBKT)>;
       mods = <(MOD_LSFT)>;
     };
     
