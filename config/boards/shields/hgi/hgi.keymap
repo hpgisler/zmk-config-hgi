@@ -158,7 +158,7 @@
       label = "ALA1";
       bindings = <
       &kp J               &kp K               &kp V               &kp LS(N7)          &kp Q               &kp SEMI  
-      &trans              &kp W               &kp Z               &kp P               &kp C               &kp COMMA           &kp Z               &trans
+      &trans              &kp W               &kp Y               &kp P               &kp C               &kp COMMA           &kp Z               &trans
       &sl ALA3            &sl NAS1            &trans              &trans
       >;
     };
