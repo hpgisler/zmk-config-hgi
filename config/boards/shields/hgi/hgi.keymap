@@ -118,7 +118,7 @@
       compatible = "zmk,behavior-mod-morph";
       label = "SLASH_BACKSLASH";
       #binding-cells = <0>;
-      bindings = &kp LS(N7), <&kp RA(NUBS)>;
+      bindings = <&kp LS(N7)>, <&kp RA(NUBS)>;
       mods = <(MOD_LSFT)>;
     };
     
