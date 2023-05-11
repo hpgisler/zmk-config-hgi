@@ -106,6 +106,14 @@
       bindings = <&kp>, <&kp>;
     };
 
+    quesexcl: quesexcl {
+      compatible = "zmk,behavior-mod-morph";
+      label = "QUESTIONMARK_EXCLAMATIONMARK";
+      #binding-cells = <0>;
+      bindings = <&kp LS(MINUS)>, <&kp RBKT>;
+      mods = <(MOD_LSFT)>;
+    };
+    
     dwjm: dwm_j_m {
       compatible = "zmk,behavior-mod-morph";
       label = "DWM_FORWARD_MONOCLE";
@@ -166,7 +174,7 @@
     ala2 {
       label = "ALA2";
       bindings = <
-      &kp X               &kp M               &kp B               &sk LALT            &kp LS(MINUS)       &kp SQT 
+      &kp X               &kp M               &kp B               &sk LALT            &quesexcl           &kp SQT 
       &trans              &kp L               &kp F               &kp G               &kp U               &kp DOT             &kp A               &trans
       &trans              &trans              &sl FUN1            &sl ALA4
       >;
