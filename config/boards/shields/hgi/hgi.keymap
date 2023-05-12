@@ -164,8 +164,8 @@
     ala0 {
       label = "ALA0";
       bindings = <
-      &kp R               &kp H               &kp D               &kp SLASH           &kp O               &kp LBKT
-      &skq LSHIFT         &kp N               &kp S               &kp T               &kp SPACE           &kp E               &kp I               &mt LCTRL ESC
+      &kp N               &kp H               &kp D               &kp SLASH           &kp O               &kp LBKT
+      &skq LSHIFT         &kp R               &kp S               &kp T               &kp SPACE           &kp E               &kp I               &mt LCTRL ESC
       &sl ALA2            &sl NAS0            &sl FUN0            &sl ALA1    
       >;
     };
