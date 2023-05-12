@@ -236,8 +236,8 @@
     fun0 {
       label = "FUN0";
       bindings = <
-      &kp RA(F1)          &kp RA(F2)          &kp RA(F3)          &kp RA(F4)          &kp RA(F5)          &kp RA(F6)        
-      &trans              &kp RA(F7)          &kp RA(F8)          &kp RA(F9)          &dwjm               &dwkt               &dwpent             &trans
+      &kp RA(F4)          &kp RA(F5)          &kp RA(F6)          &kp RA(F7)          &kp RA(F8)          &kp RA(F9)           
+      &trans              &kp RA(F1)          &kp RA(F2)          &kp RA(F3)          &dwjm               &dwkt               &dwpent             &trans
       &sl FUN1            &sl FUN2            &trans              &trans              
       >;
     };
@@ -254,8 +254,8 @@
     fun2 {
       label = "FUN2";
       bindings = <
-      &kp F1              &kp F2              &kp F3              &kp F4              &kp F5              &kp F6            
-      &trans              &kp F7              &kp F8              &kp F9              &kp F10             &kp F11             &kp F12             &trans
+      &kp F4              &kp F5              &kp F6              &kp F7              &kp F8              &kp F9               
+      &trans              &kp F1              &kp F2              &kp F3              &kp F10             &kp F11             &kp F12             &trans
       &trans              &trans              &trans              &trans              
       >;
     };
