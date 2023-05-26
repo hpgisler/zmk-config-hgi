@@ -15,6 +15,9 @@
 &sk {
   release-after-ms = <2000>;
   quick-release;
+}
+;&sl {
+  release-after-ms = <200>;
 };
 
 /* Layers */
