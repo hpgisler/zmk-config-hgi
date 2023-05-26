@@ -40,7 +40,7 @@
       label = "STICKY_KEY_QUICK_RELEASE";
       #binding-cells = <1>;
       bindings = <&kp>;
-      release-after-ms = <500>;
+      release-after-ms = <250>;
       quick-release;
       ignore-modifiers;
     };
@@ -246,7 +246,7 @@
       label = "FUN1";
       bindings = <
       &kp RA(LS(Q))       &kp RA(LS(C))       &kp LGUI            &kp RA(B)           &kp RA(H)           &kp RA(L)         
-      &trans              &trans              &trans              &kp CAPS            &kp RA(I)           &kp RA(D)           &trans              &trans
+      &trans              &trans              &trans              &kp CAPS            &kp RA(I)           &kp RA(D)           &kp RCTL            &trans
       &trans              &trans              &trans              &trans              
       >;
     };
