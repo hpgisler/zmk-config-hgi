@@ -149,6 +149,14 @@
       mods = <(MOD_LSFT)>;
     };
     
+    n7bspc: n7_bspc  {
+      compatible = "zmk,behavior-mod-morph";
+      label = "SEVEN_BACKSPACE";
+      #binding-cells = <0>;
+      bindings = <&kp N7>, <&kp BSPC>;
+      mods = <(MOD_LSFT)>;
+    };
+    
     mods: mods_layers {
       compatible = "zmk,behavior-mod-morph";
       label = "MODS_LAYERS";
@@ -203,7 +211,7 @@
     ala4 {
       label = "ALA4";
       bindings = <
-      &kp N4              &kp N5              &kp N6              &kp N7              &kp N8              &kp N9
+      &kp N4              &kp N5              &kp N6              &n7bspc             &kp N8              &kp N9
       &trans              &kp N1              &kp N2              &kp N3              &kp N0              &kp MINUS           &kp LS(N2)          &trans
       &trans              &trans              &trans              &trans              
       >;
