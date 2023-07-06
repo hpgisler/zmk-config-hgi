@@ -23,18 +23,19 @@
 /* Layers */
 #define ALA0     0
 #define ALA1     1
-#define ALA1_CPY 2
-#define ALA2     3
-#define ALA3     4
-#define ALA4     5
-#define NAS0     6
-#define NAS1     7
-#define NAS2     8
-#define FUN0     9
-#define FUN1     10
-#define FUN2     11
-#define MODL     12
-#define MODR     13
+#define ALA2     2
+#define ALA1_CPY 3
+#define ALA2_CPY 4
+#define ALA3     5
+#define ALA4     6
+#define NAS0     7
+#define NAS1     8
+#define NAS2     9
+#define FUN0     10
+#define FUN1     11
+#define FUN2     12
+#define MODL     13
+#define MODR     14 
 
 / { 
   
@@ -186,8 +187,24 @@
 
   conditional_layers {
     compatible = "zmk,conditional-layers";
+    to_ala3_b {
+      if-layers = <ALA1_CPY ALA2_CPY>;
+      then-layer = <ALA3>;
+    };
+  };
+
+  conditional_layers {
+    compatible = "zmk,conditional-layers";
     to_ala4 {
       if-layers = <ALA1_CPY ALA2>;
+      then-layer = <ALA4>;
+    };
+  };
+
+  conditional_layers {
+    compatible = "zmk,conditional-layers";
+    to_ala4_b {
+      if-layers = <ALA1 ALA2_CPY>;
       then-layer = <ALA4>;
     };
   };
@@ -214,16 +231,7 @@
       bindings = <
       &kp J               &kp K               &kp V               &slsbsls            &kp Q               &kp SQT  
       &trans              &kp W               &kp Y               &kp P               &kp C               &kp COMMA           &kp Z               &trans
-      &trans              &mo NAS1            &trans              &trans
-      >;
-    };
-
-    ala1_cpy {
-      label = "ALA1_CPY";
-      bindings = <
-      &kp J               &kp K               &kp V               &slsbsls            &kp Q               &kp SQT  
-      &trans              &kp W               &kp Y               &kp P               &kp C               &kp COMMA           &kp Z               &trans
-      &trans              &mo NAS1            &trans              &trans
+      &mo ALA2            &mo NAS1            &trans              &mo ALA1    
       >;
     };
 
@@ -232,7 +240,25 @@
       bindings = <
       &kp X               &kp M               &kp B               &sk LALT            &quesexcl           &kp SEMI 
       &trans              &kp L               &kp F               &kp G               &kp SLASH           &kp DOT             &kp LBKT               &trans
-      &trans              &trans              &mo FUN1            &mo ALA1_CPY
+      &mo ALA2            &trans              &mo FUN1            &mo ALA1_CPY
+      >;
+    };
+
+    ala1_cpy {
+      label = "ALA1_CPY";
+      bindings = <
+      &kp J               &kp K               &kp V               &slsbsls            &kp Q               &kp SQT  
+      &trans              &kp W               &kp Y               &kp P               &kp C               &kp COMMA           &kp Z               &trans
+      &mo ALA2_CPY        &mo NAS1            &trans              &mo ALA1_CPY
+      >;
+    };
+
+    ala2_cpy {
+      label = "ALA2_CPY";
+      bindings = <
+      &kp X               &kp M               &kp B               &sk LALT            &quesexcl           &kp SEMI 
+      &trans              &kp L               &kp F               &kp G               &kp SLASH           &kp DOT             &kp LBKT               &trans
+      &mo ALA2_CPY        &trans              &mo FUN1            &mo ALA1
       >;
     };
 
