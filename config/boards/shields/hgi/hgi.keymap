@@ -156,14 +156,23 @@
       bindings = <&kp N7>, <&kp BSPC>;
       mods = <(MOD_LSFT)>;
     };
-    
-    mods: mods_layers {
+
+    pipehash: pipe_hash  {
       compatible = "zmk,behavior-mod-morph";
-      label = "MODS_LAYERS";
+      label = "PIPE_HASH";
       #binding-cells = <0>;
-      bindings = <&tog MODL>, <&tog MODR>;
+      bindings = <&kp RA(N7)>, <&kp RA(N3)>;
       mods = <(MOD_LSFT)>;
     };
+
+    n9deg: n9_deg  {
+      compatible = "zmk,behavior-mod-morph";
+      label = "NINE_DEGREE";
+      #binding-cells = <0>;
+      bindings = <&kp N9>, <&kp LS(GRAVE)>;
+      mods = <(MOD_LSFT)>;
+    };
+
   };
   // keypositions
   //                  0       1       2                   3       4       5
@@ -202,7 +211,7 @@
     ala3 {
       label = "ALA3";
       bindings = <
-      &kp LS(N1)          &kp NUBS            &kp LS(NUBS)        &kp RA(SQT)         &kp RA(NUHS)        &none
+      &kp LS(N1)          &kp NUBS            &kp LS(NUBS)        &kp RA(SQT)         &kp RA(NUHS)        &pipehash
       &trans              &kp RA(N2)          &kp RA(LBKT)        &kp RA(RBKT)        &kp LS(N8)          &kp LS(N9)          &kp LS(N3)           &trans
       &trans              &trans              &trans              &trans              
       >;
@@ -211,7 +220,7 @@
     ala4 {
       label = "ALA4";
       bindings = <
-      &kp N4              &kp N5              &kp N6              &n7bspc             &kp N8              &kp N9
+      &kp N4              &kp N5              &kp N6              &n7bspc             &kp N8              &n9deg
       &trans              &kp N1              &kp N2              &kp N3              &kp N0              &kp MINUS           &kp LS(N2)          &trans
       &trans              &trans              &trans              &trans              
       >;
@@ -221,7 +230,7 @@
       label = "NAS0";
       bindings = <
       &kp LS(N5)          &kp LS(N6)          &kp EQUAL           &kp BSPC            &kp LEFT            &kp RIGHT
-      &trans              &mods               &kp RA(EQUAL)       &kp TAB             &kp DOWN            &kp UP              &kp ENTER           &trans
+      &trans              &tog MODL           &kp RA(EQUAL)       &kp TAB             &kp DOWN            &kp UP              &kp ENTER           &trans
       &trans              &trans              &sl NAS2            &sl NAS1              
       >;
     };
@@ -230,7 +239,7 @@
       label = "NAS1";
       bindings = <
       &kp RA(E)           &kp NUHS            &kp LS(NUHS)        &kp DEL             &kp HOME            &kp END   
-      &trans              &kp LS(GRAVE)       &kp RA(N3)          &kp RA(N7)          &kp PG_DN           &kp PG_UP           &kp LS(N0)          &trans
+      &trans              &tog MODR           &none               &kp LC(LA(TAB))     &kp PG_DN           &kp PG_UP           &kp LS(N0)          &trans
       &trans              &trans              &trans              &trans              
       >;
     };
