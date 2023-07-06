@@ -21,19 +21,20 @@
 };
 
 /* Layers */
-#define ALA0 0
-#define ALA1 1
-#define ALA2 2
-#define ALA3 3
-#define ALA4 4
-#define NAS0 5
-#define NAS1 6
-#define NAS2 7
-#define FUN0 8
-#define FUN1 9
-#define FUN2 10
-#define MODL 11
-#define MODR 12
+#define ALA0     0
+#define ALA1     1
+#define ALA1_CPY 2
+#define ALA2     3
+#define ALA3     4
+#define ALA4     5
+#define NAS0     6
+#define NAS1     7
+#define NAS2     8
+#define FUN0     9
+#define FUN1     10
+#define FUN2     11
+#define MODL     12
+#define MODR     13
 
 / { 
   
@@ -174,6 +175,24 @@
     };
 
   };
+
+  conditional_layers {
+    compatible = "zmk,conditional-layers";
+    to_ala3 {
+      if-layers = <ALA1 ALA2>;
+      then-layer = <ALA3>;
+    };
+  };
+
+  conditional_layers {
+    compatible = "zmk,conditional-layers";
+    to_ala4 {
+      if-layers = <ALA1_CPY ALA2>;
+      then-layer = <ALA4>;
+    };
+  };
+
+
   // keypositions
   //                  0       1       2                   3       4       5
   //          6       7       8       9                   10      11      12          13
@@ -195,7 +214,16 @@
       bindings = <
       &kp J               &kp K               &kp V               &slsbsls            &kp Q               &kp SQT  
       &trans              &kp W               &kp Y               &kp P               &kp C               &kp COMMA           &kp Z               &trans
-      &mo ALA3            &mo NAS1            &trans              &trans
+      &trans              &mo NAS1            &trans              &trans
+      >;
+    };
+
+    ala1_cpy {
+      label = "ALA1_CPY";
+      bindings = <
+      &kp J               &kp K               &kp V               &slsbsls            &kp Q               &kp SQT  
+      &trans              &kp W               &kp Y               &kp P               &kp C               &kp COMMA           &kp Z               &trans
+      &trans              &mo NAS1            &trans              &trans
       >;
     };
 
@@ -204,7 +232,7 @@
       bindings = <
       &kp X               &kp M               &kp B               &sk LALT            &quesexcl           &kp SEMI 
       &trans              &kp L               &kp F               &kp G               &kp SLASH           &kp DOT             &kp LBKT               &trans
-      &trans              &trans              &mo FUN1            &mo ALA4
+      &trans              &trans              &mo FUN1            &mo ALA1_CPY
       >;
     };
 
