@@ -29,13 +29,15 @@
 #define ALA3     5
 #define ALA4     6
 #define NAS0     7
-#define NAS1     8
-#define NAS2     9
-#define FUN0     10
-#define FUN1     11
-#define FUN2     12
-#define MODL     13
-#define MODR     14 
+#define FUN0     8 
+#define NAS0_CPY 9
+#define FUN0_CPY 10  
+#define NAS1     11
+#define FUN1     12
+#define NAS2     13
+#define FUN2     14
+#define MODL     15
+#define MODR     16 
 
 / { 
   
@@ -177,36 +179,72 @@
 
   };
 
+  
   conditional_layers {
     compatible = "zmk,conditional-layers";
+
+    // Defining the directed activation of the conditional layers
+    // ---------------------------------------------------------- 
+   
+    // ALA3 and ALA4
+
     to_ala3 {
       if-layers = <ALA1 ALA2>;
       then-layer = <ALA3>;
     };
-  };
 
-  conditional_layers {
-    compatible = "zmk,conditional-layers";
     to_ala3_b {
       if-layers = <ALA1_CPY ALA2_CPY>;
       then-layer = <ALA3>;
     };
-  };
 
-  conditional_layers {
-    compatible = "zmk,conditional-layers";
     to_ala4 {
       if-layers = <ALA1_CPY ALA2>;
       then-layer = <ALA4>;
     };
-  };
 
-  conditional_layers {
-    compatible = "zmk,conditional-layers";
     to_ala4_b {
       if-layers = <ALA1 ALA2_CPY>;
       then-layer = <ALA4>;
     };
+
+    
+    // NAS2 and FUN2
+
+    to_fun2 {
+      if-layers = <FUN0 NAS0>;
+      then-layer = <FUN2>;
+    };
+
+    to_fun2_b {
+      if-layers = <FUN0_CPY NAS0_CPY>;
+      then-layer = <FUN2>;
+    };
+
+    to_nas2 {
+      if-layers = <FUN0_CPY NAS0>;
+      then-layer = <NAS2>;
+    };
+
+    to_nas2_b {
+      if-layers = <FUN0 NAS0_CPY>;
+      then-layer = <NAS2>;
+    };
+
+
+    // Defining the UN-directed activation of the conditional layers
+    // ------------------------------------------------------------- 
+
+    to_nas1 {
+      if-layers = <ALA1 NAS0>;
+      then-layer = <NAS1>;
+    };
+
+    to_fun1 {
+      if-layers = <ALA2 FUN0>;
+      then-layer = <FUN1>;
+    };
+
   };
 
 
@@ -231,7 +269,7 @@
       bindings = <
       &kp J               &kp K               &kp V               &slsbsls            &kp Q               &kp SQT  
       &trans              &kp W               &kp Y               &kp P               &kp C               &kp COMMA           &kp Z               &trans
-      &mo ALA2            &mo NAS1            &trans              &mo ALA1    
+      &mo ALA2            &mo NAS0            &trans              &mo ALA1    
       >;
     };
 
@@ -240,7 +278,7 @@
       bindings = <
       &kp X               &kp M               &kp B               &sk LALT            &quesexcl           &kp SEMI 
       &trans              &kp L               &kp F               &kp G               &kp SLASH           &kp DOT             &kp LBKT               &trans
-      &mo ALA2            &trans              &mo FUN1            &mo ALA1_CPY
+      &mo ALA2            &trans              &mo FUN0            &mo ALA1_CPY
       >;
     };
 
@@ -285,15 +323,51 @@
       bindings = <
       &kp LS(N5)          &kp LS(N6)          &kp EQUAL           &kp BSPC            &kp LEFT            &kp RIGHT
       &trans              &tog MODL           &kp RA(EQUAL)       &kp TAB             &kp DOWN            &kp UP              &kp ENTER           &trans
-      &trans              &trans              &mo NAS2            &mo NAS1              
+      &trans              &mo NAS0            &mo FUN0_CPY        &mo ALA1              
       >;
     };
 
+    fun0 {
+      label = "FUN0";
+      bindings = <
+      &kp RA(F4)          &kp RA(F5)          &kp RA(F6)          &kp RA(F7)          &kp RA(F8)          &kp RA(F9)           
+      &trans              &kp RA(F1)          &kp RA(F2)          &kp RA(F3)          &dwjm               &dwkt               &dwpent             &trans
+      &mo ALA2            &mo NAS0            &mo FUN0            &trans              
+      >;
+    };
+    
+    nas0_cpy {
+      label = "NAS0_CPY";
+      bindings = <
+      &kp LS(N5)          &kp LS(N6)          &kp EQUAL           &kp BSPC            &kp LEFT            &kp RIGHT
+      &trans              &tog MODL           &kp RA(EQUAL)       &kp TAB             &kp DOWN            &kp UP              &kp ENTER           &trans
+      &trans              &mo NAS0_CPY        &mo FUN0            &mo NAS1              
+      >;
+    };
+
+    fun0_cpy {
+      label = "FUN0_CPY";
+      bindings = <
+      &kp RA(F4)          &kp RA(F5)          &kp RA(F6)          &kp RA(F7)          &kp RA(F8)          &kp RA(F9)           
+      &trans              &kp RA(F1)          &kp RA(F2)          &kp RA(F3)          &dwjm               &dwkt               &dwpent             &trans
+      &mo FUN1            &mo NAS0_CPY        &mo FUN0_CPY        &trans              
+      >;
+    };
+    
     nas1 {
       label = "NAS1";
       bindings = <
       &kp RA(E)           &kp NUHS            &kp LS(NUHS)        &kp DEL             &kp HOME            &kp END   
       &trans              &tog MODR           &none               &kp LC(LA(TAB))     &kp PG_DN           &kp PG_UP           &kp LS(N0)          &trans
+      &trans              &trans              &trans              &trans              
+      >;
+    };
+
+    fun1 {
+      label = "FUN1";
+      bindings = <
+      &kp RA(LS(Q))       &kp RA(LS(C))       &kp LGUI            &kp RA(B)           &kp RA(H)           &kp RA(L)         
+      &trans              &trans              &trans              &kp CAPS            &kp RA(I)           &kp RA(D)           &kp RCTL            &trans
       &trans              &trans              &trans              &trans              
       >;
     };
@@ -307,24 +381,6 @@
       >;
     };
     
-    fun0 {
-      label = "FUN0";
-      bindings = <
-      &kp RA(F4)          &kp RA(F5)          &kp RA(F6)          &kp RA(F7)          &kp RA(F8)          &kp RA(F9)           
-      &trans              &kp RA(F1)          &kp RA(F2)          &kp RA(F3)          &dwjm               &dwkt               &dwpent             &trans
-      &mo FUN1            &mo FUN2            &trans              &trans              
-      >;
-    };
-    
-    fun1 {
-      label = "FUN1";
-      bindings = <
-      &kp RA(LS(Q))       &kp RA(LS(C))       &kp LGUI            &kp RA(B)           &kp RA(H)           &kp RA(L)         
-      &trans              &trans              &trans              &kp CAPS            &kp RA(I)           &kp RA(D)           &kp RCTL            &trans
-      &trans              &trans              &trans              &trans              
-      >;
-    };
-
     fun2 {
       label = "FUN2";
       bindings = <
