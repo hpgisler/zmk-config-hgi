@@ -128,28 +128,28 @@
       bindings = <&kp LS(N7)>, <&kp RA(NUBS)>;
       mods = <(MOD_LSFT)>;
     };
-    
-    dwjm: dwm_j_m {
+
+    dwji: dwm_j_i {
       compatible = "zmk,behavior-mod-morph";
-      label = "DWM_FORWARD_MONOCLE";
+      label = "DWM_FORWARD_INCREASE";
       #binding-cells = <0>;
-      bindings = <&kp RA(J)>, <&kp RA(M)>;
+      bindings = <&kp RA(J)>, <&kp RA(I)>;
       mods = <(MOD_LSFT)>;
     };
     
-    dwkt: dwm_k_t {
+    dwkd: dwm_k_d {
       compatible = "zmk,behavior-mod-morph";
-      label = "DWM_BACKWARD_TABBED";
+      label = "DWM_BACKWARD_DECREASE";
       #binding-cells = <0>;
-      bindings = <&kp RA(K)>, <&kp RA(T)>;
+      bindings = <&kp RA(K)>, <&kp RA(D)>;
       mods = <(MOD_LSFT)>;
     };
     
-    dwpent: dwm_p_ent {
+    dwprctl: dwm_p_rctl {
       compatible = "zmk,behavior-mod-morph";
-      label = "DWM_OPEN_ENTER";
+      label = "DWM_OPEN_RCTL";
       #binding-cells = <0>;
-      bindings = <&kp RA(P)>, <&kp RA(ENTER)>;
+      bindings = <&kp RA(P)>, <&kp RCTL>;
       mods = <(MOD_LSFT)>;
     };
     
@@ -378,7 +378,7 @@
       label = "FUN0";
       bindings = <
       &kp RA(F4)          &kp RA(F5)          &kp RA(F6)          &kp RA(F7)          &kp RA(F8)          &kp RA(F9)           
-      &trans              &kp RA(F1)          &kp RA(F2)          &kp RA(F3)          &dwjm               &dwkt               &dwpent             &trans
+      &trans              &kp RA(F1)          &kp RA(F2)          &kp RA(F3)          &dwji               &dwkd               &dwprctl            &trans
       &mo ALA2            &mo NAS0            &mo FUN0            &trans              
       >;
     };
@@ -396,7 +396,7 @@
       label = "FUN0_CPY";
       bindings = <
       &kp RA(F4)          &kp RA(F5)          &kp RA(F6)          &kp RA(F7)          &kp RA(F8)          &kp RA(F9)           
-      &trans              &kp RA(F1)          &kp RA(F2)          &kp RA(F3)          &dwjm               &dwkt               &dwpent             &trans
+      &trans              &kp RA(F1)          &kp RA(F2)          &kp RA(F3)          &dwji               &dwkd               &dwprctl            &trans
       &mo FUN1            &mo NAS0_CPY        &mo FUN0_CPY        &trans              
       >;
     };
@@ -414,7 +414,7 @@
       label = "FUN1";
       bindings = <
       &tdwq               &kp RA(LS(C))       &kp LGUI            &kp RA(B)           &kp RA(H)           &kp RA(L)         
-      &trans              &trans              &trans              &kp CAPS            &kp RA(I)           &kp RA(D)           &kp RCTL            &trans
+      &trans              &trans              &trans              &kp CAPS            &kp RA(M)           &kp RA(T)           &kp RA(ENTER)       &trans
       &trans              &trans              &trans              &trans              
       >;
     };
