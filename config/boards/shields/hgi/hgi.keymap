@@ -224,9 +224,8 @@
       tapping-term-ms = <200>;
       bindings = <&none>, <&bt BT_CLR>;
     };
-<<<<<<< Updated upstream
-=======
 
+    
 	  ala1macro: ala1_macro {
 		  compatible = "zmk,behavior-macro";
 		  label = "ALA1_MACRO";
@@ -252,7 +251,6 @@
       bindings = <&kp>, <&key_repeat>;
     };
     
->>>>>>> Stashed changes
   };
 
   
@@ -335,44 +333,26 @@
       label = "ALA0";
       bindings = <
       &kp N               &kp H               &kp D               &kp U               &kp O               &kp A
-<<<<<<< Updated upstream
       &skq LSHIFT         &kp R               &kp S               &kp T               &kp SPACE           &kp E               &kp I               &mt LCTRL ESC
       &mo ALA2            &mo NAS0            &mo FUN0            &mo ALA1    
-=======
-//      &hr LSHIFT 0        &kp R               &kp S               &kp T               &kp SPACE           &kp E               &kp I               &mt LCTRL ESC
-      &kp LSHIFT          &kp R               &kp S               &kp T               &kp SPACE           &kp E               &kp I               &mt LCTRL ESC
-      &ala2macro          &mo NAS0            &mo FUN0            &ala1macro
->>>>>>> Stashed changes
       >;
     };
 
     ala1 {
       label = "ALA1";
       bindings = <
-<<<<<<< Updated upstream
-      &kp J               &kp K               &kp V               &slsbsls            &kp Q               &kp SQT  
-      &trans              &kp W               &kp Y               &kp P               &kp C               &kp COMMA           &kp Z               &trans
-      &mo ALA2            &mo NAS0            &trans              &mo ALA1    
-=======
       &kr J               &kr K               &kr V               &slsbsls            &kr Q               &kr SQT  
       &trans              &kr W               &kr Y               &kr P               &kr C               &kr COMMA           &kr Z               &trans
-      &sl ALA3            &sl NAS1            &trans              &mo ALA1    
->>>>>>> Stashed changes
+      &mo ALA2            &mo NAS0            &trans              &mo ALA1    
       >;
     };
 
     ala2 {
       label = "ALA2";
       bindings = <
-<<<<<<< Updated upstream
-      &kp X               &kp M               &kp B               &sk LALT            &quesexcl           &kp SEMI 
-      &trans              &kp L               &kp F               &kp G               &kp SLASH           &kp DOT             &kp LBKT               &trans
-      &mo ALA2            &trans              &mo FUN0            &mo ALA1_CPY
-=======
       &kr X               &kr M               &kr B               &sk LALT            &quesexcl           &kr SEMI 
       &trans              &kr L               &kr F               &kr G               &kr SLASH           &kr DOT             &kr LBKT               &trans
-      &mo ALA2            &trans              &sl FUN1            &sl ALA4
->>>>>>> Stashed changes
+      &mo ALA2            &trans              &mo FUN0            &mo ALA1_CPY
       >;
     };
 
