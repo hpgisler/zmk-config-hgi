@@ -341,8 +341,8 @@
     ala1 {
       label = "ALA1";
       bindings = <
-      &kr J               &kr K               &kr V               &slsbsls            &kr Q               &kr SQT  
-      &trans              &kr W               &kr Y               &kr P               &kr C               &kr COMMA           &kr Z               &trans
+      &kp J               &kp K               &kp V               &slsbsls            &kp Q               &kp SQT  
+      &trans              &kp W               &kp Y               &kp P               &kp C               &kp COMMA           &kp Z               &trans
       &mo ALA2            &mo NAS0            &trans              &mo ALA1    
       >;
     };
@@ -350,8 +350,8 @@
     ala2 {
       label = "ALA2";
       bindings = <
-      &kr X               &kr M               &kr B               &sk LALT            &quesexcl           &kr SEMI 
-      &trans              &kr L               &kr F               &kr G               &kr SLASH           &kr DOT             &kr LBKT               &trans
+      &kp X               &kp M               &kp B               &sk LALT            &quesexcl           &kp SEMI 
+      &trans              &kp L               &kp F               &kp G               &kp SLASH           &kp DOT             &kp LBKT               &trans
       &mo ALA2            &trans              &mo FUN0            &mo ALA1_CPY
       >;
     };
