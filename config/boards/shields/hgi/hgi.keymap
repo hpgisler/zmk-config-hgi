@@ -17,7 +17,8 @@
   quick-release;
 }
 ;&sl {
-  release-after-ms = <200>;
+  release-after-ms = <70>;
+  ignore-modifiers;
 };
 
 /* Layers */
@@ -334,7 +335,7 @@
       bindings = <
       &kp N               &kp H               &kp D               &kp U               &kp O               &kp A
       &skq LSHIFT         &kp R               &kp S               &kp T               &kp SPACE           &kp E               &kp I               &mt LCTRL ESC
-      &mo ALA2            &mo NAS0            &mo FUN0            &mo ALA1    
+      &sl ALA2            &sl NAS0            &sl FUN0            &sl ALA1    
       >;
     };
 
@@ -343,7 +344,7 @@
       bindings = <
       &kp J               &kp K               &kp V               &slsbsls            &kp Q               &kp SQT  
       &trans              &kp W               &kp Y               &kp P               &kp C               &kp COMMA           &kp Z               &trans
-      &mo ALA2            &mo NAS0            &trans              &mo ALA1    
+      &sl ALA2            &sl NAS0            &trans              &sl ALA1    
       >;
     };
 
@@ -352,7 +353,7 @@
       bindings = <
       &kp X               &kp M               &kp B               &sk LALT            &quesexcl           &kp SEMI 
       &trans              &kp L               &kp F               &kp G               &kp SLASH           &kp DOT             &kp LBKT               &trans
-      &mo ALA2            &trans              &mo FUN0            &mo ALA1_CPY
+      &sl ALA2            &trans              &sl FUN0            &sl ALA1_CPY
       >;
     };
 
@@ -361,7 +362,7 @@
       bindings = <
       &kp J               &kp K               &kp V               &slsbsls            &kp Q               &kp SQT  
       &trans              &kp W               &kp Y               &kp P               &kp C               &kp COMMA           &kp Z               &trans
-      &mo ALA2_CPY        &mo NAS1            &trans              &mo ALA1_CPY
+      &sl ALA2_CPY        &sl NAS1            &trans              &sl ALA1_CPY
       >;
     };
 
@@ -370,7 +371,7 @@
       bindings = <
       &kp X               &kp M               &kp B               &sk LALT            &quesexcl           &kp SEMI 
       &trans              &kp L               &kp F               &kp G               &kp SLASH           &kp DOT             &kp LBKT               &trans
-      &mo ALA2_CPY        &trans              &mo FUN1            &mo ALA1
+      &sl ALA2_CPY        &trans              &sl FUN1            &sl ALA1
       >;
     };
 
@@ -397,7 +398,7 @@
       bindings = <
       &kp LS(N5)          &kp LS(N6)          &kp EQUAL           &kp BSPC            &kp LEFT            &kp RIGHT
       &trans              &tog MODL           &kp RA(EQUAL)       &kp TAB             &kp DOWN            &kp UP              &kp ENTER           &trans
-      &trans              &mo NAS0            &mo FUN0_CPY        &mo ALA1              
+      &trans              &sl NAS0            &sl FUN0_CPY        &sl ALA1              
       >;
     };
 
@@ -406,7 +407,7 @@
       bindings = <
       &kp RA(F4)          &kp RA(F5)          &kp RA(F6)          &kp RA(F7)          &kp RA(F8)          &kp RA(F9)           
       &trans              &kp RA(F1)          &kp RA(F2)          &kp RA(F3)          &dwji               &dwkd               &dwprctl            &trans
-      &mo ALA2            &mo NAS0            &mo FUN0            &trans              
+      &sl ALA2            &sl NAS0            &sl FUN0            &trans              
       >;
     };
     
@@ -415,7 +416,7 @@
       bindings = <
       &kp LS(N5)          &kp LS(N6)          &kp EQUAL           &kp BSPC            &kp LEFT            &kp RIGHT
       &trans              &tog MODL           &kp RA(EQUAL)       &kp TAB             &kp DOWN            &kp UP              &kp ENTER           &trans
-      &trans              &mo NAS0_CPY        &mo FUN0            &mo NAS1              
+      &trans              &sl NAS0_CPY        &sl FUN0            &sl NAS1              
       >;
     };
 
@@ -424,7 +425,7 @@
       bindings = <
       &kp RA(F4)          &kp RA(F5)          &kp RA(F6)          &kp RA(F7)          &kp RA(F8)          &kp RA(F9)           
       &trans              &kp RA(F1)          &kp RA(F2)          &kp RA(F3)          &dwji               &dwkd               &dwprctl            &trans
-      &mo FUN1            &mo NAS0_CPY        &mo FUN0_CPY        &trans              
+      &sl FUN1            &sl NAS0_CPY        &sl FUN0_CPY        &trans              
       >;
     };
     
