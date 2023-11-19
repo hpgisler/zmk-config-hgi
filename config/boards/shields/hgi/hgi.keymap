@@ -47,7 +47,7 @@
       label = "STICKY_KEY_QUICK_RELEASE";
       #binding-cells = <1>;
       bindings = <&kp>;
-      release-after-ms = <250>;
+      release-after-ms = <50>; // keep that low, e.g. with 100ms, it is possible to to quickly press RCTL (involving LSFT, and key.pos.16) and then select other desktop (also involving key.pos.16, but NOT LSFT) but LSFT then is still active, i.e. effectively MOVING current app to other desktop
       quick-release;
       ignore-modifiers;
     };
