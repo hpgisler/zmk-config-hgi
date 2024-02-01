@@ -129,19 +129,19 @@
       mods = <(MOD_LSFT)>;
     };
 
-    dwji: dwm_j_i {
+    dwmi: dwm_m_i {
       compatible = "zmk,behavior-mod-morph";
       label = "DWM_FORWARD_INCREASE";
       #binding-cells = <0>;
-      bindings = <&kp RA(J)>, <&kp RA(I)>;
+      bindings = <&kp RA(M)>, <&kp RA(I)>;
       mods = <(MOD_LSFT)>;
     };
     
-    dwkd: dwm_k_d {
+    dwtd: dwm_t_d {
       compatible = "zmk,behavior-mod-morph";
       label = "DWM_BACKWARD_DECREASE";
       #binding-cells = <0>;
-      bindings = <&kp RA(K)>, <&kp RA(D)>;
+      bindings = <&kp RA(T)>, <&kp RA(D)>;
       mods = <(MOD_LSFT)>;
     };
     
@@ -413,7 +413,7 @@
       label = "FUN0";
       bindings = <
       &kp RA(F4)          &kp RA(F5)          &kp RA(F6)          &kp RA(F7)          &kp RA(F8)          &kp RA(F9)           
-      &trans              &kp RA(F1)          &kp RA(F2)          &kp RA(F3)          &dwji               &dwkd               &dwprctl            &trans
+      &trans              &kp RA(F1)          &kp RA(F2)          &kp RA(F3)          &kp RA(J)           &kp RA(K)           &dwprctl            &trans
       &sl ALA2            &sl NAS0            &sl FUN0            &trans              
       >;
     };
@@ -431,7 +431,7 @@
       label = "FUN0_CPY";
       bindings = <
       &kp RA(F4)          &kp RA(F5)          &kp RA(F6)          &kp RA(F7)          &kp RA(F8)          &kp RA(F9)           
-      &trans              &kp RA(F1)          &kp RA(F2)          &kp RA(F3)          &dwji               &dwkd               &dwprctl            &trans
+      &trans              &kp RA(F1)          &kp RA(F2)          &kp RA(F3)          &kp RA(J)           &kp RA(K)           &dwprctl            &trans
       &sl FUN1            &sl NAS0_CPY        &sl FUN0_CPY        &trans              
       >;
     };
@@ -449,7 +449,7 @@
       label = "FUN1";
       bindings = <
       &tdwq               &kp RA(LS(C))       &kp LGUI            &kp RA(B)           &kp RA(H)           &kp RA(L)         
-      &trans              &trans              &trans              &kp CAPS            &kp RA(M)           &kp RA(T)           &kp RA(ENTER)       &trans
+      &trans              &trans              &trans              &kp CAPS            &dwmi               &dwtd               &kp RA(ENTER)       &trans
       &trans              &trans              &trans              &trans              
       >;
     };
