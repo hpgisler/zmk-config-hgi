@@ -270,26 +270,7 @@
    
     // ALA3 and ALA4
 
-    to_ala3 {
-      if-layers = <ALA1 ALA2>;
-      then-layer = <ALA3>;
-    };
-
-    to_ala3_b {
-      if-layers = <ALA1_CPY ALA2_CPY>;
-      then-layer = <ALA3>;
-    };
-
-    to_ala4 {
-      if-layers = <ALA1_CPY ALA2>;
-      then-layer = <ALA4>;
-    };
-
-    to_ala4_b {
-      if-layers = <ALA1 ALA2_CPY>;
-      then-layer = <ALA4>;
-    };
-
+    // ..deleted for etad testing 
     
     // NAS2 and FUN2
 
@@ -340,47 +321,48 @@
     ala0 {
       label = "ALA0";
       bindings = <
-      &kp N               &kp H               &kp D               &kp U               &kp O               &kp A
-      &skq LSHIFT         &kp R               &kp S               &kp T               &kp SPACE           &kp E               &kp I               &mt LCTRL ESC
-      &sl ALA2            &sl NAS0            &sl FUN0            &sl ALA1    
+      &none               &none               &none               &none               &none               &none               
+      &none               &sk  LALT           &sk  LSHIFT         &sk  LCTRL          &sk  RCTRL          &sk  RSHIFT         &sk  RALT           &kp ESC 
+      &sl ALA1            &sl NAS0            &sl FUN0            &sl ALA2
       >;
     };
 
     ala1 {
       label = "ALA1";
       bindings = <
-      &kp J               &kp K               &kp V               &slsbsls            &kp Q               &kp SQT  
-      &trans              &kp W               &kp Y               &kp P               &kp C               &kp COMMA           &kp Z               &trans
-      &sl ALA2            &sl NAS0            &trans              &sl ALA1    
+      &kp M               &kp C               &kp P               &kp Z               &kp O               &kp F
+      &kp R               &kp N               &kp T               &kp SPACE           &kp E               &kp A               &kp S               &kp I
+      &trans              &trans              &trans              &sl ALA2    
       >;
     };
 
     ala2 {
       label = "ALA2";
       bindings = <
-      &kp X               &kp M               &kp B               &sk LALT            &quesexcl           &kp SEMI 
-      &trans              &kp L               &kp F               &kp G               &kp SLASH           &kp DOT             &kp LBKT               &trans
-      &sl ALA2            &trans              &sl FUN0            &sl ALA1_CPY
+      &kp X               &kp V               &kp Q               &kp SLASH           &kp Y               &kp J  
+      &kp W               &kp L               &kp D               &kp B               &kp U               &kp G               &kp H               &kp K
+      &sl ALA1_CPY        &trans              &trans              &trans    
       >;
     };
 
     ala1_cpy {
       label = "ALA1_CPY";
       bindings = <
-      &kp J               &kp K               &kp V               &slsbsls            &kp Q               &kp SQT  
-      &trans              &kp W               &kp Y               &kp P               &kp C               &kp COMMA           &kp Z               &trans
-      &sl ALA2_CPY        &sl NAS1            &trans              &sl ALA1_CPY
+      &kp M               &kp C               &kp P               &kp Z               &kp O               &kp F
+      &kp R               &kp N               &kp T               &kp SPACE           &kp E               &kp A               &kp S               &kp I
+      &trans              &trans              &trans              &sl ALA2_CPY    
       >;
     };
 
     ala2_cpy {
       label = "ALA2_CPY";
       bindings = <
-      &kp X               &kp M               &kp B               &sk LALT            &quesexcl           &kp SEMI 
-      &trans              &kp L               &kp F               &kp G               &kp SLASH           &kp DOT             &kp LBKT               &trans
-      &sl ALA2_CPY        &trans              &sl FUN1            &sl ALA1
+      &kp X               &kp V               &kp Q               &kp SLASH           &kp Y               &kp J  
+      &kp W               &kp L               &kp D               &kp B               &kp U               &kp G               &kp H               &kp K
+      &sl ALA1            &trans              &trans              &trans    
       >;
     };
+
 
     ala3 {
       label = "ALA3";
