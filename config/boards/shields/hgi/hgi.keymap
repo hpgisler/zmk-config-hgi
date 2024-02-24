@@ -322,7 +322,7 @@
       label = "ALA0";
       bindings = <
       &none               &none               &none               &none               &none               &none               
-      &none               &sk  LALT           &sk  LSHIFT         &sk  LCTRL          &sk  RCTRL          &sk  RSHIFT         &sk  RALT           &kp ESC 
+      &none               &sk  LALT           &sk  LSHIFT         &sk  LCTRL          &sk  RCTRL          &sk  RSHIFT         &sk  LALT           &kp ESC 
       &sl ALA1            &sl NAS0            &sl FUN0            &sl ALA2
       >;
     };
