@@ -21,23 +21,22 @@
 };
 
 /* Layers */
-#define ALA0     0
-#define ALA1     1
-#define ALA2     2
-#define ALA1_CPY 3
-#define ALA2_CPY 4
-#define ALA3     5
-#define ALA4     6
-#define NAS0     7
-#define FUN0     8 
-#define NAS0_CPY 9
-#define FUN0_CPY 10  
-#define NAS1     11
-#define FUN1     12
-#define NAS2     13
-#define FUN2     14
-#define MODL     15
-#define MODR     16 
+#define BASE      0
+#define LAY1      1
+#define LAY2      2 
+#define LAY3      3
+#define ALA1      4
+#define ALA2      5
+#define ALA1_CPY  6
+#define ALA2_CPY  7
+#define NAV1      8
+#define NAV2      9
+#define SYM1     10
+#define SYM2     11
+#define PAR2     12
+#define NUM1     13
+#define NUM2     14
+
 
 / { 
   
@@ -52,27 +51,6 @@
       ignore-modifiers;
     };
     
-    
-    hm_l: homerow_mods_left {
-      compatible = "zmk,behavior-hold-tap";
-      label = "HOMEROW_MODS_L";
-      #binding-cells = <2>;
-      tapping-term-ms = <300>;
-      quick-tap-ms = <250>;
-      flavor = "tap-preferred";
-      bindings = <&kp>, <&kp>;
-      hold-trigger-key-positions = <3 4 5 10 11 12 13 14>; // right hand
-    };
-    hm_r: homerow_mods_right {
-      compatible = "zmk,behavior-hold-tap";
-      label = "HOMEROW_MODS_R";
-      #binding-cells = <2>;
-      tapping-term-ms = <300>;
-      quick-tap-ms = <250>;
-      flavor = "tap-preferred";
-      bindings = <&kp>, <&kp>;
-      hold-trigger-key-positions = <0 1 2 6 7 8 9>; // left hand
-    };
     sr: shift_layer {
       compatible = "zmk,behavior-hold-tap";
       label = "SHIFT_LAYER";
@@ -82,26 +60,6 @@
       flavor = "tap-preferred";
       bindings = <&kp>, <&to>;
       retro-tap;
-    };
-    hl_l: homerow_layers_left {
-      compatible = "zmk,behavior-hold-tap";
-      label = "HOMEROW_LAYERS_L";
-      #binding-cells = <2>;
-      tapping-term-ms = <220>;
-      quick-tap-ms = <250>;
-      flavor = "tap-preferred";
-      bindings = <&mo>, <&kp>;
-      hold-trigger-key-positions = <3 4 5 10 11 12 13 14>; // right hand
-    };
-    hl_r: homerow_layers_right {
-      compatible = "zmk,behavior-hold-tap";
-      label = "HOMEROW_LAYERS_R";
-      #binding-cells = <2>;
-      tapping-term-ms = <220>;
-      quick-tap-ms = <250>;
-      flavor = "tap-preferred";
-      bindings = <&mo>, <&kp>;
-      hold-trigger-key-positions = <0 1 2 6 7 8 9>; // left hand
     };
     td: tapdance {
       compatible = "zmk,behavior-hold-tap";
@@ -113,75 +71,11 @@
       bindings = <&kp>, <&kp>;
     };
 
-    quesexcl: quesexcl {
-      compatible = "zmk,behavior-mod-morph";
-      label = "QUESTIONMARK_EXCLAMATIONMARK";
-      #binding-cells = <0>;
-      bindings = <&kp LS(MINUS)>, <&kp LS(RBKT)>;
-      mods = <(MOD_LSFT)>;
-    };
-    
-    slsbsls: slsbsls {
-      compatible = "zmk,behavior-mod-morph";
-      label = "SLASH_BACKSLASH";
-      #binding-cells = <0>;
-      bindings = <&kp LS(N7)>, <&kp RA(NUBS)>;
-      mods = <(MOD_LSFT)>;
-    };
-
-    dwmi: dwm_m_i {
-      compatible = "zmk,behavior-mod-morph";
-      label = "DWM_FORWARD_INCREASE";
-      #binding-cells = <0>;
-      bindings = <&kp RA(M)>, <&kp RA(I)>;
-      mods = <(MOD_LSFT)>;
-    };
-    
-    dwtd: dwm_t_d {
-      compatible = "zmk,behavior-mod-morph";
-      label = "DWM_BACKWARD_DECREASE";
-      #binding-cells = <0>;
-      bindings = <&kp RA(T)>, <&kp RA(D)>;
-      mods = <(MOD_LSFT)>;
-    };
-    
-    dwprctl: dwm_p_rctl {
-      compatible = "zmk,behavior-mod-morph";
-      label = "DWM_OPEN_RCTL";
-      #binding-cells = <0>;
-      bindings = <&kp RA(P)>, <&kp RCTL>;
-      mods = <(MOD_LSFT)>;
-    };
-    
     n7bspc: n7_bspc  {
       compatible = "zmk,behavior-mod-morph";
       label = "SEVEN_BACKSPACE";
       #binding-cells = <0>;
       bindings = <&kp N7>, <&kp BSPC>;
-      mods = <(MOD_LSFT)>;
-    };
-
-    pipehash: pipe_hash  {
-      compatible = "zmk,behavior-mod-morph";
-      label = "PIPE_HASH";
-      #binding-cells = <0>;
-      bindings = <&kp RA(N7)>, <&kp RA(N3)>;
-      mods = <(MOD_LSFT)>;
-    };
-
-    n9deg: n9_deg  {
-      compatible = "zmk,behavior-mod-morph";
-      label = "NINE_DEGREE";
-      #binding-cells = <0>;
-      bindings = <&kp N9>, <&kp LS(GRAVE)>;
-      mods = <(MOD_LSFT)>;
-    };
-
-    aposgrave: apos_grave  {
-      compatible = "zmk,behavior-mod-morph";
-      label = "APOS_GRAVE";
-      #binding-cells = <0>;
-      bindings = <&kp MINUS>, <&kp LS(EQUAL)>;
       mods = <(MOD_LSFT)>;
     };
 
@@ -232,82 +126,39 @@
       tapping-term-ms = <200>;
       bindings = <&none>, <&bt BT_CLR>;
     };
-
-    
-	  ala1macro: ala1_macro {
-		  compatible = "zmk,behavior-macro";
-		  label = "ALA1_MACRO";
-		  #binding-cells = <0>;
-		  bindings = < &sl  ALA1>;
-	  };
-
-	  ala2macro: ala2_macro {
-		  compatible = "zmk,behavior-macro";
-		  label = "ALA2_MACRO";
-		  #binding-cells = <0>;
-		  bindings = < &sl  ALA2>;
-	  };
-    
-    hr: hold_repeat {
-      compatible = "zmk,behavior-hold-tap";
-      label = "HOLD_REPEAT";
-      #binding-cells = <2>;
-      flavor = "hold-preferred";
-      tapping-term-ms = <150>;
-      quick-tap-ms = <150>;
-      global-quick-tap;
-      bindings = <&kp>, <&key_repeat>;
-    };
-    
   };
 
   
   conditional_layers {
     compatible = "zmk,conditional-layers";
 
-    // Defining the directed activation of the conditional layers
-    // ---------------------------------------------------------- 
-   
-    // ALA3 and ALA4
-
-    // ..deleted for etad testing 
-    
-    // NAS2 and FUN2
-
-    to_fun2 {
-      if-layers = <FUN0 NAS0>;
-      then-layer = <FUN2>;
-    };
-
-    to_fun2_b {
-      if-layers = <FUN0_CPY NAS0_CPY>;
-      then-layer = <FUN2>;
-    };
-
-    to_nas2 {
-      if-layers = <FUN0_CPY NAS0>;
-      then-layer = <NAS2>;
-    };
-
-    to_nas2_b {
-      if-layers = <FUN0 NAS0_CPY>;
-      then-layer = <NAS2>;
-    };
-
-
     // Defining the UN-directed activation of the conditional layers
     // ------------------------------------------------------------- 
 
-    to_nas1 {
-      if-layers = <ALA1 NAS0>;
-      then-layer = <NAS1>;
+    to_lay3 {
+      if-layers = <LAY1 LAY2>;
+      then-layer = <LAY3>;
     };
 
-    to_fun1 {
-      if-layers = <ALA2 FUN0>;
-      then-layer = <FUN1>;
+    to_nav2 {
+      if-layers = <NAV1 ALA1>;
+      then-layer = <NAV2>;
     };
 
+    to_sym2 {
+      if-layers = <SYM1 ALA2>;
+      then-layer = <SYM2>;
+    };
+
+    to_par2 {
+      if-layers = <NAV1 SYM1>;
+      then-layer = <PAR2>;
+    };
+
+    to_num2 {
+      if-layers = <NUM1 NAV1>;
+      then-layer = <NUM2>;
+    };
   };
 
 
@@ -318,156 +169,149 @@
   keymap {
     compatible = "zmk,keymap";
     
-    ala0 {
-      label = "ALA0";
+    base {
+      label = "BASE";
       bindings = <
-      &none               &none               &none               &none               &none               &none               
-      &none               &sk  LALT           &sk LCTRL           &sk LSHIFT          &sk RSHIFT          &sk RCTRL           &sk  LALT           &kp ESC 
-      &sl ALA1            &sl NAS0            &sl FUN0            &sl ALA2
+      &none               &sl LAY2            &sl LAY1            &sl LAY1            &sl LAY2            &none                        
+      &kp ESC             &sk  LALT           &sk LCTRL           &sk LSHIFT          &sk RSHIFT          &sk RCTRL           &sk  LALT           &sl NUM1
+      &sl ALA2            &sl NAV1            &sl SYM1            &sl ALA1
       >;
     };
 
+
+    
     ala1 {
       label = "ALA1";
       bindings = <
-      &kp M               &kp C               &kp P               &kp Z               &kp O               &kp F
-      &kp R               &kp N               &kp T               &kp SPACE           &kp E               &kp A               &kp S               &kp I
-      &trans              &trans              &trans              &sl ALA2    
+      &kp V               &kp F               &kp B               &kp Q               &kp SLASH           &kp J
+      &kp K               &kp W               &kp M               &kp G               &kp P               &kp X               &kp Y               &kp Y
+      &sl ALA2            &trans              &trans              &trans
       >;
     };
 
     ala2 {
       label = "ALA2";
       bindings = <
-      &kp X               &kp V               &kp Q               &kp SLASH           &kp Y               &kp J  
-      &kp W               &kp L               &kp D               &kp B               &kp U               &kp G               &kp H               &kp K
-      &sl ALA1_CPY        &trans              &trans              &trans    
+      &kp L               &kp H               &kp D               &kp C               &kp U               &kp O  
+      &kp R               &kp N               &kp S               &kp T               &kp SPACE           &kp E               &kp A               &kp I
+      &trans              &trans              &trans              &sl ALA1_CPY  
       >;
     };
 
     ala1_cpy {
       label = "ALA1_CPY";
       bindings = <
-      &kp M               &kp C               &kp P               &kp Z               &kp O               &kp F
-      &kp R               &kp N               &kp T               &kp SPACE           &kp E               &kp A               &kp S               &kp I
-      &trans              &trans              &trans              &sl ALA2_CPY    
+      &kp V               &kp F               &kp B               &kp Q               &kp SLASH           &kp J
+      &kp K               &kp W               &kp M               &kp G               &kp P               &kp X               &kp Y               &kp Y
+      &sl ALA2_CPY        &trans              &trans              &trans
       >;
     };
 
     ala2_cpy {
       label = "ALA2_CPY";
       bindings = <
-      &kp X               &kp V               &kp Q               &kp SLASH           &kp Y               &kp J  
-      &kp W               &kp L               &kp D               &kp B               &kp U               &kp G               &kp H               &kp K
-      &sl ALA1            &trans              &trans              &trans    
+      &kp L               &kp H               &kp D               &kp C               &kp U               &kp O  
+      &kp R               &kp N               &kp S               &kp T               &kp SPACE           &kp E               &kp A               &kp I
+      &trans              &trans              &trans              &sl ALA1
       >;
     };
 
+    
 
-    ala3 {
-      label = "ALA3";
+    nav1 {
+      label = "NAV1";
       bindings = <
-      &kp LS(N1)          &kp NUBS            &kp LS(NUBS)        &kp RA(SQT)         &kp RA(NUHS)        &pipehash
-      &trans              &kp RA(N2)          &kp RA(LBKT)        &kp RA(RBKT)        &kp LS(N8)          &kp LS(N9)          &kp LS(N3)           &trans
+      &kp LS(N5)          &kp RA(N3)          &kp LS(MINUS)       &kp BSPC            &kp LEFT            &kp RIGHT
+      &kp RA(N2)          &kp EQUAL           &kp LS(N3)          &kp LS(N7)          &kp DOWN            &kp UP              &kp ENTER           &kp TAB  
       &trans              &trans              &trans              &trans              
       >;
     };
 
-    ala4 {
-      label = "ALA4";
+    nav2 {
+      label = "NAV2";
       bindings = <
-      &kp N4              &kp N5              &kp N6              &n7bspc             &kp N8              &n9deg
-      &trans              &kp N1              &kp N2              &kp N3              &kp N0              &aposgrave          &kp LS(N2)          &trans
+      &kp F10             &kp F11             &kp F12             &kp DEL             &kp HOME            &kp END
+      &none               &kp F7              &kp F8              &kp F9              &kp PG_DN           &kp PG_UP           &none              &trans
       &trans              &trans              &trans              &trans              
       >;
     };
 
-    nas0 {
-      label = "NAS0";
+    
+
+    sym1 {
+      label = "SYM1";
       bindings = <
-      &kp LS(N5)          &kp LS(N6)          &kp EQUAL           &kp BSPC            &kp LEFT            &kp RIGHT
-      &trans              &tog MODL           &kp RA(EQUAL)       &kp TAB             &kp DOWN            &kp UP              &kp ENTER           &trans
-      &trans              &sl NAS0            &sl FUN0_CPY        &sl ALA1              
+      &kp LS(N6)          &kp RA(N7)          &kp LS(RBKT)        &kp LS(COMMA)       &kp LS(DOT)          &kp LS(N2)
+      &kp MINUS           &kp LS(SLASH)       &kp RA(EQUAL)       &kp RA(NUBS)        &kp COMMA            &kp DOT            &kp LS(EQUAL)       &trans
+      &trans              &trans              &trans              &trans              
       >;
     };
 
-    fun0 {
-      label = "FUN0";
+    sym2 {
+      label = "SYM2";
+      bindings = <
+      &kp F4              &kp F5              &kp F6              &kp LS(LBRC)        &kp LBKT            &kp SEMI         
+      &trans              &kp F1              &kp F2              &kp F3              &kp LS(SEMI)        &kp LS(SQT)         &kp SQT             &kp LS(N4) 
+      &trans              &trans              &trans              &trans              
+      >;
+    };
+
+
+    
+    par2 {
+      label = "PAR2";
+      bindings = <
+      &none               &none               &none               &none               &none               &none      
+      &kp NUBS            &kp RA(LBKT)        &kp RA(SQT)         &kp LS(N8)         &kp LS(N9)           &kp RA(NUHS)        &kp RA(RBKT)        &kp LS(NUBS) 
+      &trans              &trans              &trans              &trans              
+      >;
+    };
+
+
+    
+    num1 {
+      label = "NUM2";
+      bindings = <
+      &none               &kp LS(N1)          &none               &kp LS(GRAVE)       &kp GRAVE           &kp LS(NUHS)  
+      &kp LS(N0)          &kp N7              &kp N8              &kp N9              &kp NUHS            &kp RA(E)           &none              &trans
+      &trans              &trans              &trans              &trans              
+      >;
+    };
+
+    num2 {
+      label = "NUM2";
+      bindings = <
+      &kp N4              &kp N5              &kp N6              &none               &none               &none 
+      &kp N0              &kp N1              &kp N2              &kp N3              &none               &none               &none              &trans
+      &trans              &trans              &trans              &trans              
+      >;
+    };
+
+
+    
+    lay1 {
+      label = "LAY1";
+      bindings = <
+      &tdbtsel0           &tdbtsel1           &kp SCROLLLOCK      &kp RA(B)           &kp RA(H)           &kp RA(L)         
+      &tdbtclr            &tdbtsel2           &tdbtsel3           &kp CAPS            &kp RA(I)           &kp RA(D)           &kp PSCRN           &kp LGUI
+      &trans              &trans              &trans              &trans              
+      >;
+    };
+    
+    lay2 {
+      label = "LAY2";
       bindings = <
       &kp RA(F4)          &kp RA(F5)          &kp RA(F6)          &kp RA(F7)          &kp RA(F8)          &kp RA(F9)           
-      &trans              &kp RA(F1)          &kp RA(F2)          &kp RA(F3)          &kp RA(J)           &kp RA(K)           &dwprctl            &trans
-      &sl ALA2            &sl NAS0            &sl FUN0            &trans              
-      >;
-    };
-    
-    nas0_cpy {
-      label = "NAS0_CPY";
-      bindings = <
-      &kp LS(N5)          &kp LS(N6)          &kp EQUAL           &kp BSPC            &kp LEFT            &kp RIGHT
-      &trans              &tog MODL           &kp RA(EQUAL)       &kp TAB             &kp DOWN            &kp UP              &kp ENTER           &trans
-      &trans              &sl NAS0_CPY        &sl FUN0            &sl NAS1              
-      >;
-    };
-
-    fun0_cpy {
-      label = "FUN0_CPY";
-      bindings = <
-      &kp RA(F4)          &kp RA(F5)          &kp RA(F6)          &kp RA(F7)          &kp RA(F8)          &kp RA(F9)           
-      &trans              &kp RA(F1)          &kp RA(F2)          &kp RA(F3)          &kp RA(J)           &kp RA(K)           &dwprctl            &trans
-      &sl FUN1            &sl NAS0_CPY        &sl FUN0_CPY        &trans              
-      >;
-    };
-    
-    nas1 {
-      label = "NAS1";
-      bindings = <
-      &kp LS(NUHS)        &kp RA(E)           &kp NUHS            &kp DEL             &kp HOME            &kp END
-      &trans              &tog MODR           &none               &kp LC(LA(TAB))     &kp PG_DN           &kp PG_UP           &kp LS(N0)          &trans
-      &trans              &trans              &trans              &trans              
-      >;
-    };
-
-    fun1 {
-      label = "FUN1";
-      bindings = <
-      &tdwq               &kp RA(LS(C))       &kp LGUI            &kp RA(B)           &kp RA(H)           &kp RA(L)         
-      &trans              &trans              &trans              &kp CAPS            &dwmi               &dwtd               &kp RA(ENTER)       &trans
-      &trans              &trans              &trans              &trans              
-      >;
-    };
-
-    nas2 {
-      label = "NAS2";
-      bindings = <
-      &tdbtsel0           &tdbtsel1           &kp PSCRN           &kp GRAVE           &tdbtclr            &kp LS(SQT)   
-      &trans              &tdbtsel2           &tdbtsel3           &kp SCROLLLOCK      &kp LS(N4)          &kp LS(SEMI)        &kp LS(LBRC)        &trans
+      &none               &kp RA(F1)          &kp RA(F2)          &kp RA(F3)          &kp RA(J)           &kp RA(K)           &kp RA(P)           &none
       &trans              &trans              &trans              &trans              
       >;
     };
     
-    fun2 {
-      label = "FUN2";
+    lay3 {
+      label = "LAY3";
       bindings = <
-      &kp F4              &kp F5              &kp F6              &kp F7              &kp F8              &kp F9               
-      &trans              &kp F1              &kp F2              &kp F3              &kp F10             &kp F11             &kp F12             &trans
-      &trans              &trans              &trans              &trans              
-      >;
-    };
-
-    modl {
-      label = "MODL";
-      bindings = <
-      &kp RALT            &trans              &kp LGUI            &trans              &trans              &trans            
-      &tog MODL           &kp LALT            &kp LSFT            &kp LCTL            &trans              &trans              &trans              &trans
-      &trans              &trans              &trans              &trans              
-      >;
-    };
-
-    modr {
-      label = "MODR";
-      bindings = <
-      &trans              &trans              &trans              &kp RGUI            &trans              &kp RALT          
-      &trans              &trans              &trans              &trans              &kp RCTL            &kp RSFT            &kp LALT            &tog MODR
+      &kp LS(RA(F4))      &kp LS(RA(F5))      &kp LS(RA(F6))      &kp LS(RA(F7))      &kp LS(RA(F8))      &kp LS(RA(F9))           
+      &tdwq               &kp LS(RA(F1))      &kp LS(RA(F2))      &kp LS(RA(F3))      &kp RA(M)           &kp RA(T)           &kp RA(ENTER)       &kp RA(LS(C))   
       &trans              &trans              &trans              &trans              
       >;
     };
