@@ -52,6 +52,14 @@
       ignore-modifiers;
     };
     
+    slslr: sticky_layer_slow_release {
+      compatible = "zmk,behavior-sticky-key";
+      label = "STICKY_LAYER";
+      #binding-cells = <1>;
+      release-after-ms = <1000>;
+      bindings = <&mo>;
+      ignore-modifiers;
+    };
     
     hm_l: homerow_mods_left {
       compatible = "zmk,behavior-hold-tap";
@@ -465,7 +473,7 @@
       label = "FUN1";
       bindings = <
       &tdwq               &kp RA(LS(C))       &kp LGUI            &kp RA(B)           &kp RA(H)           &kp RA(L)         
-      &kp CAPS            &trans              &kp PSCRN           &kp SCROLLLOCK      &dwmi               &dwtd               &kp RA(ENTER)       &trans
+      &kp CAPS            &slslr FUN2         &kp PSCRN           &kp SCROLLLOCK      &dwmi               &dwtd               &kp RA(ENTER)       &trans
       &trans              &trans              &trans              &trans              
       >;
     };
