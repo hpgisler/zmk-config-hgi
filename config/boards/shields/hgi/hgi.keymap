@@ -465,7 +465,7 @@
       label = "FUN1";
       bindings = <
       &tdwq               &kp RA(LS(C))       &kp LGUI            &kp RA(B)           &kp RA(H)           &kp RA(L)         
-      &kp CAPS            &trans              &trans              &trans              &dwmi               &dwtd               &kp RA(ENTER)       &trans
+      &kp CAPS            &trans              &kp PSCRN           &kp SCROLLLOCK      &dwmi               &dwtd               &kp RA(ENTER)       &trans
       &trans              &trans              &trans              &trans              
       >;
     };
@@ -473,8 +473,8 @@
     nas2 {
       label = "NAS2";
       bindings = <
-      &tdbtsel0           &tdbtsel1           &kp PSCRN           &kp GRAVE           &tdbtclr            &kp LS(SQT)   
-      &skq LSHIFT         &tdbtsel2           &tdbtsel3           &kp SCROLLLOCK      &kp LS(N4)          &kp LS(SEMI)        &kp LS(LBRC)        &trans
+      &tdbtsel0           &tdbtsel1           &trans              &kp GRAVE           &tdbtclr            &kp LS(SQT)   
+      &skq LSHIFT         &tdbtsel2           &tdbtsel3           &trans              &kp LS(N4)          &kp LS(SEMI)        &kp LS(LBRC)        &trans
       &trans              &trans              &trans              &trans              
       >;
     };
