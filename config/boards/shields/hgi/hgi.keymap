@@ -185,6 +185,22 @@
       mods = <(MOD_LSFT)>;
     };
 
+    laltunder: lalt_under  {
+      compatible = "zmk,behavior-mod-morph";
+      label = "LALT_UNDER";
+      #binding-cells = <0>;
+      bindings = <&sk LALT>, <&kp LS(SLASH)>;
+      mods = <(MOD_LSFT)>;
+    };
+
+    minusplus: minus_plus  {
+      compatible = "zmk,behavior-mod-morph";
+      label = "MINUS_PLUS";
+      #binding-cells = <0>;
+      bindings = <&kp SLASH>, <&kp LS(N1)>;
+      mods = <(MOD_LSFT)>;
+    };
+    
     tdwq: tap_dance_wq {
       compatible = "zmk,behavior-tap-dance";
       label = "TAP_DANCE_DWM_QUIT";
@@ -358,8 +374,8 @@
     ala2 {
       label = "ALA2";
       bindings = <
-      &kp X               &kp M               &kp B               &sk LALT            &quesexcl           &kp SEMI 
-      &trans              &kp L               &kp F               &kp G               &kp SLASH           &kp DOT             &kp LBKT               &trans
+      &kp X               &kp M               &kp B               &laltunder          &quesexcl           &kp SEMI 
+      &trans              &kp L               &kp F               &kp G               &minusplus          &kp DOT             &kp LBKT               &trans
       &sl ALA2            &trans              &sl FUN0            &sl ALA1_CPY
       >;
     };
@@ -385,7 +401,7 @@
     ala3 {
       label = "ALA3";
       bindings = <
-      &kp LS(N1)          &kp NUBS            &kp LS(NUBS)        &kp RA(SQT)         &kp RA(NUHS)        &pipehash
+      &none               &kp NUBS            &kp LS(NUBS)        &kp RA(SQT)         &kp RA(NUHS)        &pipehash
       &trans              &kp RA(N2)          &kp RA(LBKT)        &kp RA(RBKT)        &kp LS(N8)          &kp LS(N9)          &kp LS(N3)           &trans
       &trans              &trans              &trans              &trans              
       >;
@@ -449,7 +465,7 @@
       label = "FUN1";
       bindings = <
       &tdwq               &kp RA(LS(C))       &kp LGUI            &kp RA(B)           &kp RA(H)           &kp RA(L)         
-      &trans              &trans              &trans              &kp CAPS            &dwmi               &dwtd               &kp RA(ENTER)       &trans
+      &kp CAPS            &trans              &trans              &trans              &dwmi               &dwtd               &kp RA(ENTER)       &trans
       &trans              &trans              &trans              &trans              
       >;
     };
@@ -458,7 +474,7 @@
       label = "NAS2";
       bindings = <
       &tdbtsel0           &tdbtsel1           &kp PSCRN           &kp GRAVE           &tdbtclr            &kp LS(SQT)   
-      &trans              &tdbtsel2           &tdbtsel3           &kp SCROLLLOCK      &kp LS(N4)          &kp LS(SEMI)        &kp LS(LBRC)        &trans
+      &skq LSHIFT         &tdbtsel2           &tdbtsel3           &kp SCROLLLOCK      &kp LS(N4)          &kp LS(SEMI)        &kp LS(LBRC)        &trans
       &trans              &trans              &trans              &trans              
       >;
     };
