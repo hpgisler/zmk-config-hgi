@@ -171,14 +171,6 @@
       mods = <(MOD_LSFT)>;
     };
 
-    pipehash: pipe_hash  {
-      compatible = "zmk,behavior-mod-morph";
-      label = "PIPE_HASH";
-      #binding-cells = <0>;
-      bindings = <&kp RA(N7)>, <&kp RA(N3)>;
-      mods = <(MOD_LSFT)>;
-    };
-
     n9deg: n9_deg  {
       compatible = "zmk,behavior-mod-morph";
       label = "NINE_DEGREE";
@@ -259,13 +251,6 @@
       bindings = <&none>, <&bt BT_CLR>;
     };
 
-
-
-
-
-
-
-
     td_nas0_nas2: tap_dance_nas0_nas2 {
       compatible = "zmk,behavior-tap-dance";
       label = "TAP_DANCE_NAS0_NAS2";
@@ -273,7 +258,6 @@
       tapping-term-ms = <300>;
       bindings = <&slf NAS0>, <&sls NAS2>;
     };
-
     td_fun0_fun2: tap_dance_fun0_fun2 {
       compatible = "zmk,behavior-tap-dance";
       label = "TAP_DANCE_FUN0_FUN2";
@@ -281,8 +265,6 @@
       tapping-term-ms = <300>;
       bindings = <&slf FUN0>, <&sls FUN2>;
     };
-
-    
     
 	  ala1macro: ala1_macro {
 		  compatible = "zmk,behavior-macro";
@@ -470,8 +452,8 @@
     ala3 {
       label = "ALA3";
       bindings = <
-      &none               &kp NUBS            &kp LS(NUBS)        &kp RA(SQT)         &kp RA(NUHS)        &pipehash
-      &trans              &kp RA(N2)          &kp RA(LBKT)        &kp RA(RBKT)        &kp LS(N8)          &kp LS(N9)          &kp LS(N3)           &trans
+      &kp NUBS            &kp RA(N2)          &kp RA(N3)          &kp LS(N3)          &kp RA(N7)          &kp LS(NUBS)
+      &trans              &kp RA(LBKT)        &kp RA(SQT)         &kp LS(N8)          &kp LS(N9)          &kp RA(NUHS)        &kp RA(RBKT)         &trans
       &trans              &trans              &trans              &trans
       >;
     };
