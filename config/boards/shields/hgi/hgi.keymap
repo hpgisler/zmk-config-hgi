@@ -15,10 +15,6 @@
   release-after-ms = <2000>;
   quick-release;
 };
-&sl {
-  release-after-ms = <70>;
-  ignore-modifiers;
-};
 
 /* Layers */
 #define ALA0     0
@@ -52,15 +48,23 @@
       ignore-modifiers;
     };
     
-    slslr: sticky_layer_slow_release {
+    slf: sticky_layer_fast_release {
       compatible = "zmk,behavior-sticky-key";
-      label = "STICKY_LAYER";
+      label = "STICKY_LAYER_FR";
+      #binding-cells = <1>;
+      release-after-ms = <70>;
+      bindings = <&mo>;
+      ignore-modifiers;
+    };
+    sls: sticky_layer_slow_release {
+      compatible = "zmk,behavior-sticky-key";
+      label = "STICKY_LAYER_SR";
       #binding-cells = <1>;
       release-after-ms = <1000>;
       bindings = <&mo>;
       ignore-modifiers;
     };
-    
+
     hm_l: homerow_mods_left {
       compatible = "zmk,behavior-hold-tap";
       label = "HOMEROW_MODS_L";
@@ -262,14 +266,14 @@
 		  compatible = "zmk,behavior-macro";
 		  label = "ALA1_MACRO";
 		  #binding-cells = <0>;
-		  bindings = < &sl  ALA1>;
+		  bindings = < &slf  ALA1>;
 	  };
 
 	  ala2macro: ala2_macro {
 		  compatible = "zmk,behavior-macro";
 		  label = "ALA2_MACRO";
 		  #binding-cells = <0>;
-		  bindings = < &sl  ALA2>;
+		  bindings = < &slf  ALA2>;
 	  };
     
     hr: hold_repeat {
@@ -366,7 +370,7 @@
       bindings = <
       &kp N               &kp H               &kp D               &kp U               &kp O               &kp A
       &skq LSHIFT         &kp R               &kp S               &kp T               &kp SPACE           &kp E               &kp I               &mt LCTRL ESC
-      &sl ALA2            &sl NAS0            &sl FUN0            &sl ALA1    
+      &slf ALA2           &slf NAS0           &slf FUN0           &slf ALA1
       >;
     };
 
@@ -375,7 +379,7 @@
       bindings = <
       &kp J               &kp K               &kp V               &slsbsls            &kp Q               &kp SQT  
       &trans              &kp W               &kp Y               &kp P               &kp C               &kp COMMA           &kp Z               &trans
-      &sl ALA2            &sl NAS0            &trans              &sl ALA1    
+      &slf ALA2           &slf NAS0           &trans              &slf ALA1
       >;
     };
 
@@ -384,7 +388,7 @@
       bindings = <
       &kp X               &kp M               &kp B               &laltunder          &quesexcl           &kp SEMI 
       &trans              &kp L               &kp F               &kp G               &minusplus          &kp DOT             &kp LBKT               &trans
-      &sl ALA2            &trans              &sl FUN0            &sl ALA1_CPY
+      &slf ALA2           &trans              &slf FUN0           &slf ALA1_CPY
       >;
     };
 
@@ -393,7 +397,7 @@
       bindings = <
       &kp J               &kp K               &kp V               &slsbsls            &kp Q               &kp SQT  
       &trans              &kp W               &kp Y               &kp P               &kp C               &kp COMMA           &kp Z               &trans
-      &sl ALA2_CPY        &sl NAS1            &trans              &sl ALA1_CPY
+      &slf ALA2_CPY       &slf NAS1           &trans              &slf ALA1_CPY
       >;
     };
 
@@ -402,7 +406,7 @@
       bindings = <
       &kp X               &kp M               &kp B               &sk LALT            &quesexcl           &kp SEMI 
       &trans              &kp L               &kp F               &kp G               &kp SLASH           &kp DOT             &kp LBKT               &trans
-      &sl ALA2_CPY        &trans              &sl FUN1            &sl ALA1
+      &slf ALA2_CPY       &trans              &slf FUN1           &slf ALA1
       >;
     };
 
@@ -429,7 +433,7 @@
       bindings = <
       &kp LS(N5)          &kp LS(N6)          &kp EQUAL           &kp BSPC            &kp LEFT            &kp RIGHT
       &trans              &tog MODL           &kp RA(EQUAL)       &kp TAB             &kp DOWN            &kp UP              &kp ENTER           &trans
-      &trans              &sl NAS0            &sl FUN0_CPY        &sl ALA1              
+      &trans              &slf NAS0           &slf FUN0_CPY       &slf ALA1
       >;
     };
 
@@ -438,7 +442,7 @@
       bindings = <
       &kp RA(F4)          &kp RA(F5)          &kp RA(F6)          &kp RA(F7)          &kp RA(F8)          &kp RA(F9)           
       &trans              &kp RA(F1)          &kp RA(F2)          &kp RA(F3)          &kp RA(J)           &kp RA(K)           &dwprctl            &trans
-      &sl ALA2            &sl NAS0            &sl FUN0            &trans              
+      &slf ALA2           &slf NAS0           &slf FUN0           &trans
       >;
     };
     
@@ -447,7 +451,7 @@
       bindings = <
       &kp LS(N5)          &kp LS(N6)          &kp EQUAL           &kp BSPC            &kp LEFT            &kp RIGHT
       &trans              &tog MODL           &kp RA(EQUAL)       &kp TAB             &kp DOWN            &kp UP              &kp ENTER           &trans
-      &trans              &sl NAS0_CPY        &sl FUN0            &sl NAS1              
+      &trans              &slf NAS0_CPY       &slf FUN0           &slf NAS1
       >;
     };
 
@@ -456,7 +460,7 @@
       bindings = <
       &kp RA(F4)          &kp RA(F5)          &kp RA(F6)          &kp RA(F7)          &kp RA(F8)          &kp RA(F9)           
       &trans              &kp RA(F1)          &kp RA(F2)          &kp RA(F3)          &kp RA(J)           &kp RA(K)           &dwprctl            &trans
-      &sl FUN1            &sl NAS0_CPY        &sl FUN0_CPY        &trans              
+      &slf FUN1           &slf NAS0_CPY       &slf FUN0_CPY       &trans
       >;
     };
     
@@ -473,7 +477,7 @@
       label = "FUN1";
       bindings = <
       &tdwq               &kp RA(LS(C))       &kp LGUI            &kp RA(B)           &kp RA(H)           &kp RA(L)         
-      &kp CAPS            &slslr FUN2         &kp PSCRN           &kp SCROLLLOCK      &dwmi               &dwtd               &kp RA(ENTER)       &trans
+      &kp CAPS            &sls FUN2           &kp PSCRN           &kp SCROLLLOCK      &dwmi               &dwtd               &kp RA(ENTER)       &trans
       &trans              &trans              &trans              &trans              
       >;
     };
