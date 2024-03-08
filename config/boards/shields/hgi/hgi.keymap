@@ -36,7 +36,7 @@
 #define MODR     16 
 
 / { 
-  
+ 
   behaviors {
     skq: sticky_key_quick_release {
       compatible = "zmk,behavior-sticky-key";
@@ -55,6 +55,7 @@
       release-after-ms = <70>;
       bindings = <&mo>;
       ignore-modifiers;
+      quick-release;
     };
     sls: sticky_layer_slow_release {
       compatible = "zmk,behavior-sticky-key";
