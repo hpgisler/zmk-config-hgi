@@ -17,21 +17,21 @@
 };
 
 /* Layers */
-#define ALA0     0
-#define ALA1     1
-#define ALA2     2
-#define ALA1_CPY 3
-#define ALA2_CPY 4
-#define ALA3     5
-#define ALA4     6
-#define NAS0     7
-#define FUN0     8 
-#define NAS1     9  
-#define FUN1    10 
-#define NAS2    11 
-#define FUN2    12 
-#define MODL    13 
-#define MODR    14  
+#define ALA0        0
+#define ALA1        1
+#define ALA2        2
+#define ALA1_CPY    3
+#define ALA2_CPY    4
+#define NAS0        5
+#define FUN0        6
+#define NAS1        7
+#define FUN1        8
+#define NAS2        9
+#define FUN2       10
+#define ALA3       11
+#define ALA4       12
+#define MODL       13
+#define MODR       14
 
 / { 
  
@@ -325,11 +325,25 @@
       then-layer = <ALA3>;
     };
 
-    to_ala4 {
-      if-layers = <ALA1 ALA2>;
+    to_ala4a {
+      if-layers = <ALA2 ALA1>;
       then-layer = <ALA4>;
     };
-    
+
+    to_ala4b {
+      if-layers = <ALA2 ALA1_CPY>;
+      then-layer = <ALA4>;
+    };
+
+    to_ala4c {
+      if-layers = <ALA2_CPY ALA1_CPY>;
+      then-layer = <ALA4>;
+    };
+
+    to_ala4d {
+      if-layers = <ALA2_CPY ALA1>;
+      then-layer = <ALA4>;
+    };
 
     // Defining the UN-directed activation of the conditional layers
     // ------------------------------------------------------------- 
@@ -368,7 +382,7 @@
       bindings = <
       &kp J               &kp K               &kp V               &slsbsls            &kp Q               &kp SQT  
       &trans              &kp W               &kp Y               &kp P               &kp C               &kp COMMA           &kp Z               &trans
-      &slf ALA2           &slf NAS0           &trans              &slf ALA1
+      &trans              &slf NAS0           &trans              &trans
       >;
     };
 
@@ -377,7 +391,7 @@
       bindings = <
       &kp X               &kp M               &kp B               &laltunder          &quesexcl           &kp SEMI 
       &trans              &kp L               &kp F               &kp G               &minusplus          &kp DOT             &kp LBKT               &trans
-      &slf ALA2           &trans              &slf FUN0           &slf ALA1_CPY
+      &trans              &trans              &slf FUN0           &slf ALA1_CPY
       >;
     };
 
@@ -386,7 +400,7 @@
       bindings = <
       &kp J               &kp K               &kp V               &slsbsls            &kp Q               &kp SQT  
       &trans              &kp W               &kp Y               &kp P               &kp C               &kp COMMA           &kp Z               &trans
-      &slf ALA2_CPY       &slf NAS0           &trans              &slf ALA1_CPY
+      &slf ALA2_CPY       &slf NAS0           &trans              &trans
       >;
     };
 
@@ -395,25 +409,7 @@
       bindings = <
       &kp X               &kp M               &kp B               &sk LALT            &quesexcl           &kp SEMI 
       &trans              &kp L               &kp F               &kp G               &kp SLASH           &kp DOT             &kp LBKT               &trans
-      &slf ALA2_CPY       &trans              &slf FUN0           &slf ALA1
-      >;
-    };
-
-    ala3 {
-      label = "ALA3";
-      bindings = <
-      &none               &kp NUBS            &kp LS(NUBS)        &kp RA(SQT)         &kp RA(NUHS)        &pipehash
-      &trans              &kp RA(N2)          &kp RA(LBKT)        &kp RA(RBKT)        &kp LS(N8)          &kp LS(N9)          &kp LS(N3)           &trans
-      &trans              &slf NAS0           &slf FUN0           &trans              
-      >;
-    };
-
-    ala4 {
-      label = "ALA4";
-      bindings = <
-      &kp N4              &kp N5              &kp N6              &n7bspc             &kp N8              &n9deg
-      &trans              &kp N1              &kp N2              &kp N3              &kp N0              &aposgrave          &kp LS(N2)          &trans
-      &trans              &trans              &trans              &trans              
+      &trans              &trans              &slf FUN0           &slf ALA1
       >;
     };
 
@@ -422,7 +418,7 @@
       bindings = <
       &kp LS(N5)          &kp LS(N6)          &kp EQUAL           &kp BSPC            &kp LEFT            &kp RIGHT
       &trans              &tog MODL           &kp RA(EQUAL)       &kp TAB             &kp DOWN            &kp UP              &kp ENTER           &trans
-      &trans              &slf NAS0           &trans              &slf ALA1
+      &trans              &trans              &slf FUN0           &slf ALA1
       >; 
     };
 
@@ -431,7 +427,7 @@
       bindings = <
       &kp RA(F4)          &kp RA(F5)          &kp RA(F6)          &kp RA(F7)          &kp RA(F8)          &kp RA(F9)           
       &trans              &kp RA(F1)          &kp RA(F2)          &kp RA(F3)          &kp RA(J)           &kp RA(K)           &dwprctl            &trans
-      &slf ALA2           &trans              &slf FUN0           &trans
+      &slf ALA2           &slf NAS0           &slf FUN0           &trans
       >;
     };
     
@@ -468,6 +464,24 @@
       &kp F4              &kp F5              &kp F6              &kp F7              &kp F8              &kp F9               
       &trans              &kp F1              &kp F2              &kp F3              &kp F10             &kp F11             &kp F12             &trans
       &trans              &trans              &trans              &trans              
+      >;
+    };
+
+    ala3 {
+      label = "ALA3";
+      bindings = <
+      &none               &kp NUBS            &kp LS(NUBS)        &kp RA(SQT)         &kp RA(NUHS)        &pipehash
+      &trans              &kp RA(N2)          &kp RA(LBKT)        &kp RA(RBKT)        &kp LS(N8)          &kp LS(N9)          &kp LS(N3)           &trans
+      &trans              &trans              &trans              &trans
+      >;
+    };
+
+    ala4 {
+      label = "ALA4";
+      bindings = <
+      &kp N4              &kp N5              &kp N6              &n7bspc             &kp N8              &n9deg
+      &trans              &kp N1              &kp N2              &kp N3              &kp N0              &aposgrave          &kp LS(N2)          &trans
+      &trans              &trans              &trans              &trans
       >;
     };
 
