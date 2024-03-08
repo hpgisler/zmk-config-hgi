@@ -26,14 +26,12 @@
 #define ALA4     6
 #define NAS0     7
 #define FUN0     8 
-#define NAS0_CPY 9
-#define FUN0_CPY 10  
-#define NAS1     11
-#define FUN1     12
-#define NAS2     13
-#define FUN2     14
-#define MODL     15
-#define MODR     16 
+#define NAS1     9  
+#define FUN1    10 
+#define NAS2    11 
+#define FUN2    12 
+#define MODL    13 
+#define MODR    14  
 
 / { 
  
@@ -262,6 +260,30 @@
       bindings = <&none>, <&bt BT_CLR>;
     };
 
+
+
+
+
+
+
+
+    td_nas0_nas2: tap_dance_nas0_nas2 {
+      compatible = "zmk,behavior-tap-dance";
+      label = "TAP_DANCE_NAS0_NAS2";
+      #binding-cells = <0>;
+      tapping-term-ms = <300>;
+      bindings = <&slf NAS0>, <&sls NAS2>;
+    };
+
+    td_fun0_fun2: tap_dance_fun0_fun2 {
+      compatible = "zmk,behavior-tap-dance";
+      label = "TAP_DANCE_FUN0_FUN2";
+      #binding-cells = <0>;
+      tapping-term-ms = <300>;
+      bindings = <&slf FUN0>, <&sls FUN2>;
+    };
+
+    
     
 	  ala1macro: ala1_macro {
 		  compatible = "zmk,behavior-macro";
@@ -300,48 +322,15 @@
     // ALA3 and ALA4
 
     to_ala3 {
-      if-layers = <ALA1 ALA2>;
-      then-layer = <ALA3>;
-    };
-
-    to_ala3_b {
-      if-layers = <ALA1_CPY ALA2_CPY>;
+      if-layers = <NAS0 FUN0>;
       then-layer = <ALA3>;
     };
 
     to_ala4 {
-      if-layers = <ALA1_CPY ALA2>;
+      if-layers = <ALA1 ALA2>;
       then-layer = <ALA4>;
     };
-
-    to_ala4_b {
-      if-layers = <ALA1 ALA2_CPY>;
-      then-layer = <ALA4>;
-    };
-
     
-    // NAS2 and FUN2
-
-    to_fun2 {
-      if-layers = <FUN0 NAS0>;
-      then-layer = <FUN2>;
-    };
-
-    to_fun2_b {
-      if-layers = <FUN0_CPY NAS0_CPY>;
-      then-layer = <FUN2>;
-    };
-
-    to_nas2 {
-      if-layers = <FUN0_CPY NAS0>;
-      then-layer = <NAS2>;
-    };
-
-    to_nas2_b {
-      if-layers = <FUN0 NAS0_CPY>;
-      then-layer = <NAS2>;
-    };
-
 
     // Defining the UN-directed activation of the conditional layers
     // ------------------------------------------------------------- 
@@ -371,7 +360,7 @@
       bindings = <
       &kp N               &kp H               &kp D               &kp U               &kp O               &kp A
       &skq LSHIFT         &kp R               &kp S               &kp T               &kp SPACE           &kp E               &kp I               &mt LCTRL ESC
-      &slf ALA2           &slf NAS0           &slf FUN0           &slf ALA1
+      &slf ALA2           &td_nas0_nas2       &td_fun0_fun2       &slf ALA1
       >;
     };
 
@@ -398,7 +387,7 @@
       bindings = <
       &kp J               &kp K               &kp V               &slsbsls            &kp Q               &kp SQT  
       &trans              &kp W               &kp Y               &kp P               &kp C               &kp COMMA           &kp Z               &trans
-      &slf ALA2_CPY       &slf NAS1           &trans              &slf ALA1_CPY
+      &slf ALA2_CPY       &slf NAS0           &trans              &slf ALA1_CPY
       >;
     };
 
@@ -407,7 +396,7 @@
       bindings = <
       &kp X               &kp M               &kp B               &sk LALT            &quesexcl           &kp SEMI 
       &trans              &kp L               &kp F               &kp G               &kp SLASH           &kp DOT             &kp LBKT               &trans
-      &slf ALA2_CPY       &trans              &slf FUN1           &slf ALA1
+      &slf ALA2_CPY       &trans              &slf FUN0           &slf ALA1
       >;
     };
 
@@ -416,7 +405,7 @@
       bindings = <
       &none               &kp NUBS            &kp LS(NUBS)        &kp RA(SQT)         &kp RA(NUHS)        &pipehash
       &trans              &kp RA(N2)          &kp RA(LBKT)        &kp RA(RBKT)        &kp LS(N8)          &kp LS(N9)          &kp LS(N3)           &trans
-      &trans              &trans              &trans              &trans              
+      &trans              &slf NAS0           &slf FUN0           &trans              
       >;
     };
 
@@ -434,8 +423,8 @@
       bindings = <
       &kp LS(N5)          &kp LS(N6)          &kp EQUAL           &kp BSPC            &kp LEFT            &kp RIGHT
       &trans              &tog MODL           &kp RA(EQUAL)       &kp TAB             &kp DOWN            &kp UP              &kp ENTER           &trans
-      &trans              &slf NAS0           &slf FUN0_CPY       &slf ALA1
-      >;
+      &trans              &slf NAS0           &trans              &slf ALA1
+      >; 
     };
 
     fun0 {
@@ -443,25 +432,7 @@
       bindings = <
       &kp RA(F4)          &kp RA(F5)          &kp RA(F6)          &kp RA(F7)          &kp RA(F8)          &kp RA(F9)           
       &trans              &kp RA(F1)          &kp RA(F2)          &kp RA(F3)          &kp RA(J)           &kp RA(K)           &dwprctl            &trans
-      &slf ALA2           &slf NAS0           &slf FUN0           &trans
-      >;
-    };
-    
-    nas0_cpy {
-      label = "NAS0_CPY";
-      bindings = <
-      &kp LS(N5)          &kp LS(N6)          &kp EQUAL           &kp BSPC            &kp LEFT            &kp RIGHT
-      &trans              &tog MODL           &kp RA(EQUAL)       &kp TAB             &kp DOWN            &kp UP              &kp ENTER           &trans
-      &trans              &slf NAS0_CPY       &slf FUN0           &slf NAS1
-      >;
-    };
-
-    fun0_cpy {
-      label = "FUN0_CPY";
-      bindings = <
-      &kp RA(F4)          &kp RA(F5)          &kp RA(F6)          &kp RA(F7)          &kp RA(F8)          &kp RA(F9)           
-      &trans              &kp RA(F1)          &kp RA(F2)          &kp RA(F3)          &kp RA(J)           &kp RA(K)           &dwprctl            &trans
-      &slf FUN1           &slf NAS0_CPY       &slf FUN0_CPY       &trans
+      &slf ALA2           &trans              &slf FUN0           &trans
       >;
     };
     
@@ -478,7 +449,7 @@
       label = "FUN1";
       bindings = <
       &tdwq               &kp RA(LS(C))       &kp LGUI            &kp RA(B)           &kp RA(H)           &kp RA(L)         
-      &kp CAPS            &sls FUN2           &kp PSCRN           &kp SCROLLLOCK      &dwmi               &dwtd               &kp RA(ENTER)       &trans
+      &kp CAPS            &none               &kp PSCRN           &kp SCROLLLOCK      &dwmi               &dwtd               &kp RA(ENTER)       &trans
       &trans              &trans              &trans              &trans              
       >;
     };
