@@ -187,19 +187,19 @@
       mods = <(MOD_LSFT)>;
     };
 
-    laltunder: lalt_under  {
+    laltplus: lalt_plus {
       compatible = "zmk,behavior-mod-morph";
-      label = "LALT_UNDER";
+      label = "LALT_PLUS";
       #binding-cells = <0>;
-      bindings = <&sk LALT>, <&kp LS(SLASH)>;
+      bindings = <&sk LALT>, <&kp LS(N1)>;
       mods = <(MOD_LSFT)>;
     };
 
-    minusplus: minus_plus  {
+    minusunder: minus_under  {
       compatible = "zmk,behavior-mod-morph";
-      label = "MINUS_PLUS";
+      label = "MINUS_UNDER";
       #binding-cells = <0>;
-      bindings = <&kp SLASH>, <&kp LS(N1)>;
+      bindings = <&kp SLASH>, <&kp LS(SLASH)>;
       mods = <(MOD_LSFT)>;
     };
     
@@ -371,8 +371,8 @@
     ala2 {
       label = "ALA2";
       bindings = <
-      &kp X               &kp M               &kp B               &laltunder          &quesexcl           &kp SEMI 
-      &trans              &kp L               &kp F               &kp G               &minusplus          &kp DOT             &kp LBKT               &trans
+      &kp X               &kp M               &kp B               &laltplus           &quesexcl           &kp SEMI 
+      &trans              &kp L               &kp F               &kp G               &minusunder         &kp DOT             &kp LBKT               &trans
       &trans              &trans              &slf FUN0           &slf ALA1_CPY
       >;
     };
