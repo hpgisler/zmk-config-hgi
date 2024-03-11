@@ -452,8 +452,8 @@
     ala3 {
       label = "ALA3";
       bindings = <
-      &kp NUBS            &kp RA(N2)          &kp RA(N3)          &kp LS(N3)          &kp RA(N7)          &kp LS(NUBS)
-      &trans              &kp RA(LBKT)        &kp RA(SQT)         &kp LS(N8)          &kp LS(N9)          &kp RA(NUHS)        &kp RA(RBKT)         &trans
+      &kp RA(N3)          &kp NUBS            &kp RA(SQT)         &kp RA(NUHS)        &kp LS(NUBS)        &kp RA(N7) 
+      &trans              &kp RA(N2)          &kp RA(LBKT)        &kp LS(N8)          &kp LS(N9)          &kp RA(RBKT)        &kp LS(N3)           &trans
       &trans              &trans              &trans              &trans
       >;
     };
