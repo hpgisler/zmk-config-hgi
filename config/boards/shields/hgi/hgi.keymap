@@ -417,7 +417,7 @@
       label = "NAS1";
       bindings = <
       &kp LS(NUHS)        &kp RA(E)           &kp NUHS            &kp DEL             &kp HOME            &kp END
-      &trans              &tog MODR           &none               &kp LC(LA(TAB))     &kp PG_DN           &kp PG_UP           &kp LS(N0)          &trans
+      &trans              &tog MODR           &kp LS(N0)          &kp LC(LA(TAB))     &kp PG_DN           &kp PG_UP           &kp SCROLLLOCK      &trans
       &trans              &trans              &trans              &trans              
       >;
     };
@@ -426,7 +426,7 @@
       label = "FUN1";
       bindings = <
       &tdwq               &kp RA(LS(C))       &kp LGUI            &kp RA(B)           &kp RA(H)           &kp RA(L)         
-      &kp CAPS            &none               &kp PSCRN           &kp SCROLLLOCK      &dwmi               &dwtd               &kp RA(ENTER)       &trans
+      &kp CAPS            &none               &kp PSCRN           &trans              &dwmi               &dwtd               &kp RA(ENTER)       &trans
       &trans              &trans              &trans              &trans              
       >;
     };
