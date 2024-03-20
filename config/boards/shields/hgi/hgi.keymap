@@ -342,19 +342,19 @@
 
   };
 
-//  combos {
-//    compatible = "zmk,combos";
-//    combo_ala4_a {
-//      timeout-ms = <100>;
-//      key-positions = <14 17>;
-//      bindings = <&slf ALA4>;
-//    };
-//    combo_ala4_b {
-//      timeout-ms = <100>;
-//      key-positions = <6 14 17>;
-//      bindings = <&slf ALA4>;
-//    };
-//  };
+  //  combos {
+  //    compatible = "zmk,combos";
+  //    combo_ala4_a {
+  //      timeout-ms = <100>;
+  //      key-positions = <14 17>;
+  //      bindings = <&slf ALA4>;
+  //    };
+  //    combo_ala4_b {
+  //      timeout-ms = <100>;
+  //      key-positions = <6 14 17>;
+  //      bindings = <&slf ALA4>;
+  //    };
+  //  };
 
 
   // keypositions
