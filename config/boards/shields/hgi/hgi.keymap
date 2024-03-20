@@ -50,7 +50,7 @@
       compatible = "zmk,behavior-sticky-key";
       label = "STICKY_LAYER_FR";
       #binding-cells = <1>;
-      release-after-ms = <70>;
+      release-after-ms = <100>;
       bindings = <&mo>;
       ignore-modifiers;
     };
