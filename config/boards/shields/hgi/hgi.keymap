@@ -434,8 +434,8 @@
     nas2 {
       label = "NAS2";
       bindings = <
-      &tdbtsel0           &tdbtsel1           &trans              &kp GRAVE           &tdbtclr            &kp LS(SQT)   
-      &skq LSHIFT         &tdbtsel2           &tdbtsel3           &trans              &kp LS(N4)          &kp LS(SEMI)        &kp LS(LBRC)        &trans
+      &tdbtsel0           &tdbtsel1           &trans              &kp GRAVE           &trans              &kp LS(SQT)   
+      &skq LSHIFT         &tdbtsel2           &tdbtsel3           &tdbtclr            &kp LS(N4)          &kp LS(SEMI)        &kp LS(LBRC)        &trans
       &trans              &trans              &trans              &trans              
       >;
     };
