@@ -34,13 +34,13 @@
 #define MODR       14
 
 / { 
- delay {
+  combos {
     compatible = "zmk,delay";
-    delay_the_only_one {
-      timeout-ms = <50>;
+    config {
+      timeout-ms = <100>;
       layer-key-positions = <6 13 14 15 16 17>;
     };
-  };
+  }; 
 
   behaviors {
     skq: sticky_key_quick_release {
@@ -345,8 +345,8 @@
 
     nas2 {
       bindings = <
-      &tdbtsel0           &tdbtsel1           &trans              &kp GRAVE           &tdbtclr            &kp LS(SQT)   
-      &skq LSHIFT         &tdbtsel2           &tdbtsel3           &trans              &kp LS(N4)          &kp LS(SEMI)        &kp LS(LBRC)        &trans
+      &tdbtsel0           &tdbtsel1           &trans              &kp GRAVE           &trans              &kp LS(SQT)   
+      &skq LSHIFT         &tdbtsel2           &tdbtsel3           &tdbtclr            &kp LS(N4)          &kp LS(SEMI)        &kp LS(LBRC)        &trans
       &trans              &trans              &trans              &trans              
       >;
     };
