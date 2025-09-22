@@ -33,7 +33,16 @@
 #define MODL       13
 #define MODR       14
 
-/ { 
+/ {
+
+  pair_inhibitors {
+    compatible = "zmk,pair-inhibitor";
+    pair_inhibitor_L1_H1 {
+      key-positions = <1 2>;
+      timeout-ms = <1000>;
+    };
+    
+
   delay {
     compatible = "zmk,delay";
     configuration {
