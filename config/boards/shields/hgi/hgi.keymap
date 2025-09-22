@@ -46,7 +46,7 @@
   delay {
     compatible = "zmk,delay";
     configuration {
-      timeout-ms = <50>;
+      timeout-ms = <40>;
       layer-key-positions = <6 13 14 15 16 17>;
     };
   }; 
@@ -201,7 +201,7 @@
       compatible = "zmk,behavior-tap-dance";
       #binding-cells = <0>;
       tapping-term-ms = <300>;
-      bindings = <&slf NAS0>, <&sls NAS2>;
+      bindings = <&slf NAS0>, <&slf NAS0>, <&sls NAS2>;
     };
     td_fun0_fun2: tap_dance_fun0_fun2 {
       compatible = "zmk,behavior-tap-dance";
@@ -354,8 +354,8 @@
 
     nas2 {
       bindings = <
-      &tdbtsel0           &tdbtsel1           &trans              &kp GRAVE           &trans              &kp LS(SQT)   
-      &skq LSHIFT         &tdbtsel2           &tdbtsel3           &tdbtclr            &kp LS(N4)          &kp LS(SEMI)        &kp LS(LBRC)        &trans
+      &tdbtsel0           &tdbtsel1           &tdbtclr            &kp GRAVE           &trans              &kp LS(SQT)   
+      &skq LSHIFT         &tdbtsel2           &tdbtsel3           &trans              &kp LS(N4)          &kp LS(SEMI)        &kp LS(LBRC)        &trans
       &trans              &trans              &trans              &trans              
       >;
     };
