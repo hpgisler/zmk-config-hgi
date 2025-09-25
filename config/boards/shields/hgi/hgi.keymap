@@ -42,7 +42,6 @@
       timeout-ms = <1000>;
     };
   };
-    
 
   delay {
     compatible = "zmk,delay";
